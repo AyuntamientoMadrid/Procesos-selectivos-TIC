@@ -1,1 +1,42 @@
-:root{--azul-madrid:#003399;} body{font-family:'DM Sans';margin:0;} .banda{background:var(--azul-madrid);color:white;padding:1rem;} .contenedor{max-width:1100px;margin:auto;} .menu{list-style:none;display:flex;gap:1rem;} .pie{border-top:4px solid var(--azul-madrid);padding:1rem;} .tarjeta{border:1px solid #ccc;padding:1rem;border-radius:.5rem;} .estado--abierta{background:green;color:white;padding:.2rem .5rem;}
+:root {
+    --azul-madrid: #003399;
+}
+
+body {
+    font-family: 'DM Sans';
+    margin: 0;
+}
+
+.banda {
+    background: var(--azul-madrid);
+    color: white;
+    padding: 1rem;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.pie {
+    border-top: 4px solid var(--azul-madrid);
+    padding: 1rem;
+}
+
+.tarjeta {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.estado--abierta {
+    background: green;
+    color: white;
+    padding: .2rem .5rem;
+}
