@@ -1,0 +1,46 @@
+{
+  "abiertas": [
+    {
+      "titulo": "Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre 2025)",
+      "plazas": "18",
+      "plazo": "Hasta el 4 de febrero de 2026",
+      "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=c83ce4ce91a4b910VgnVCM100000891ecb1aRCRD"
+    }
+  ],
+  "proximas": [
+    {
+      "titulo": "No hay convocatorias próximas previstas.",
+      "plazas": "",
+      "plazo": "",
+      "url": "#"
+    }
+  ],
+  "finalizadas": [
+    {
+      "titulo": "Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre 2024)",
+      "plazas": "11",
+      "plazo": "Cerrado",
+      "url": "https://www.madrid.es/portal/site/munimadrid/menuitem.0c57021e0d1f6162c345c34571f1a5a0/"
+    }
+  ],
+  "documentacion": [
+    {
+      "cuerpo": "Técnico/a Auxiliar TIC",
+      "tipo": "Documentación de apoyo",
+      "texto": "Cuaderno de NotebookLM (resolución de dudas)",
+      "url": "https://notebooklm.google.com/notebook/1bf54086-8eee-47ec-beed-e87ab8865995"
+    },
+    {
+      "cuerpo": "Técnico/a Auxiliar TIC",
+      "tipo": "Documentación de apoyo",
+      "texto": "Web no oficial – test similares",
+      "url": "https://www.baquedano.es/grupo_C.html"
+    }
+  ],
+  "faq": [
+    {
+      "texto": "Guía para inscribirse en el proceso selectivo (PDF)",
+      "url": "data/Como_inscribirse.pdf"
+    }
+  ]
+}
