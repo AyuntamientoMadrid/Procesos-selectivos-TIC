@@ -36,7 +36,7 @@ body {
 }
 
 .estado--abierta {
-    background: green;
+    background: rgba(0, 128, 28, 0.514);
     color: white;
     padding: .2rem .5rem;
 }
