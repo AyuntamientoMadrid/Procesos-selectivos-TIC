@@ -40,3 +40,7 @@ body {
     color: white;
     padding: .2rem .5rem;
 }
+.card-convocatoria {
+    width: 90%;
+    max-width: 1100px; /* ajusta si quieres */
+}
