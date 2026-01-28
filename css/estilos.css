@@ -47,6 +47,13 @@ body {
     color: white;
     padding: .2rem .5rem;
 }
+
+.estado--proxima {
+    background: rgba(233, 230, 52, 0.6);
+    color: white;
+    padding: .2rem .5rem;
+}
+
 .card-convocatoria {
     width: 100%;
     max-width: 1100px;
