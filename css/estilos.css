@@ -1,5 +1,8 @@
 :root {
     --azul-madrid: #003399;
+    --estado-abierta: #0B6E4F;
+    --estado-proxima: #F2B705;
+    --estado-finalizada: #5A6770;
 }
 
 body {
@@ -37,21 +40,24 @@ body {
 }
 
 .estado--abierta {
-    background: rgba(0, 128, 28, 0.514);
-    color: white;
-    padding: .2rem .5rem;
-}
-
-.estado--finalizada {
-    background: rgba(110, 112, 114, 0.6);
-    color: white;
-    padding: .2rem .5rem;
+    background-color: var(--estado-abierta);
+    color: #ffffff;
+    padding: .25rem .6rem;
+    border-radius: .25rem;
 }
 
 .estado--proxima {
-    background: rgba(233, 230, 52, 0.6);
-    color: white;
-    padding: .2rem .5rem;
+    background-color: var(--estado-proxima);
+    color: #000000;
+    padding: .25rem .6rem;
+    border-radius: .25rem;
+}
+
+.estado--finalizada {
+    background-color: var(--estado-finalizada);
+    color: #ffffff;
+    padding: .25rem .6rem;
+    border-radius: .25rem;
 }
 
 .card-convocatoria {

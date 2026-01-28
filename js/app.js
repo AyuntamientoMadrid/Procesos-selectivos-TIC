@@ -1,42 +1,42 @@
 fetch('data/contenido.json')
-  .then(r => r.json())
-  .then(data => {
+    .then(r => r.json())
+    .then(data => {
 
-    pintarConvocatorias(
-      'lista-abiertas',
-      data.abiertas,
-      'estado--abierta',
-      'No hay convocatorias abiertas actualmente.'
-    );
+        pintarConvocatorias(
+            'lista-abiertas',
+            data.abiertas,
+            'estado--abierta',
+            'No hay convocatorias abiertas actualmente.'
+        );
 
-    pintarConvocatorias(
-      'lista-proximas',
-      data.proximas,
-      'estado--proxima',
-      'No hay convocatorias próximas previstas.'
-    );
+        pintarConvocatorias(
+            'lista-proximas',
+            data.proximas,
+            'estado--proxima',
+            'No hay convocatorias próximas previstas.'
+        );
 
-    pintarConvocatorias(
-      'lista-finalizadas',
-      data.finalizadas,
-      'estado--finalizada',
-      'No hay convocatorias finalizadas.'
-    );
+        pintarConvocatorias(
+            'lista-finalizadas',
+            data.finalizadas,
+            'estado--finalizada',
+            'No hay convocatorias finalizadas.'
+        );
 
-    pintarDocumentacion(data.documentacion);
-    pintarFAQ(data.faq);
-  })
-  .catch(err => console.error('Error cargando el contenido', err));
+        pintarDocumentacion(data.documentacion);
+        pintarFAQ(data.faq);
+    })
+    .catch(err => console.error('Error cargando el contenido', err));
 
 /* =========================
    CONVOCATORIAS (tarjetas)
    ========================= */
 function pintarConvocatorias(id, lista, estado, mensajeVacio) {
-  const cont = document.getElementById(id);
-  cont.innerHTML = '';
+    const cont = document.getElementById(id);
+    cont.innerHTML = '';
 
-  if (!lista || lista.length === 0) {
-    cont.innerHTML = `
+    if (!lista || lista.length === 0) {
+        cont.innerHTML = `
       <div class="card card-convocatoria mx-auto">
         <div class="card-body">
           <h5 class="card-title ${estado}">
@@ -44,44 +44,49 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
           </h5>
         </div>
       </div>`;
-    return;
-  }
+        return;
+    }
 
-  lista.forEach(c => {
-    cont.insertAdjacentHTML('beforeend', `
+    lista.forEach(c => {
+        cont.insertAdjacentHTML('beforeend', `
       <div class="card card-convocatoria mx-auto">
         <div class="card-body">
           <h5 class="card-title ${estado}">
             <span class="text-white">${c.titulo}</span>
           </h5>
-          <ul class="tarjeta__meta">
+            <ul class="tarjeta__meta">
             <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
+
+            ${c.plazas_discapacidad
+                            ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
+                            : ''}
+
             <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
-          </ul>
-          <a href="${c.url}" class="btn-madrid btn">Ver convocatoria</a>
+            </ul>
+          <a href="${c.url}" class="btn-madrid btn" target="_blank" rel="noopener noreferrer">Ver convocatoria<i class="bi bi-box-arrow-up-right ms-1"></i></a>
         </div>
       </div>
     `);
-  });
+    });
 }
 
 /* =========================
    DOCUMENTACIÓN (tabla 3 col)
    ========================= */
 function pintarDocumentacion(lista) {
-  const tbody = document.getElementById('tabla-documentacion');
-  tbody.innerHTML = '';
+    const tbody = document.getElementById('tabla-documentacion');
+    tbody.innerHTML = '';
 
-  if (!lista || lista.length === 0) {
-    tbody.innerHTML = `
+    if (!lista || lista.length === 0) {
+        tbody.innerHTML = `
       <tr>
         <td colspan="3" class="text-center">No hay documentación disponible.</td>
       </tr>`;
-    return;
-  }
+        return;
+    }
 
-  lista.forEach(d => {
-    tbody.insertAdjacentHTML('beforeend', `
+    lista.forEach(d => {
+        tbody.insertAdjacentHTML('beforeend', `
       <tr>
         <td>${d.cuerpo}</td>
         <td>${d.tipo}</td>
@@ -92,26 +97,26 @@ function pintarDocumentacion(lista) {
         </td>
       </tr>
     `);
-  });
+    });
 }
 
 /* =========================
    FAQ (tabla 2 col)
    ========================= */
 function pintarFAQ(lista) {
-  const tbody = document.getElementById('tabla-faq');
-  tbody.innerHTML = '';
+    const tbody = document.getElementById('tabla-faq');
+    tbody.innerHTML = '';
 
-  if (!lista || lista.length === 0) {
-    tbody.innerHTML = `
+    if (!lista || lista.length === 0) {
+        tbody.innerHTML = `
       <tr>
         <td colspan="2" class="text-center">No hay documentos disponibles.</td>
       </tr>`;
-    return;
-  }
+        return;
+    }
 
-  lista.forEach(f => {
-    tbody.insertAdjacentHTML('beforeend', `
+    lista.forEach(f => {
+        tbody.insertAdjacentHTML('beforeend', `
       <tr>
         <td>${f.texto}</td>
         <td>
@@ -121,5 +126,5 @@ function pintarFAQ(lista) {
         </td>
       </tr>
     `);
-  });
+    });
 }
