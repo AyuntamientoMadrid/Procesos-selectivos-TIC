@@ -42,125 +42,31 @@
     <main id='contenido' class="contenedor  mt-3 mt-md-4 mt-lg-5">
         <section id="abiertas">
             <h2>Convocatorias Abiertas</h2>
-            <div class="card card-convocatoria mx-auto">
-                <!--                <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title estado--abierta">
-                        <!--    <i class="bi bi-airplane-engines-fill"></i> -->
-                        <span class="text-white">Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre
-                            2025)</span>
-                    </h5>
-                    <p class="card-text">
-                    <ul class='tarjeta__meta'>
-                        <li><strong class="p-1">Plazas:</strong>18</li>
-                        <li><strong class="p-1">Plazo:</strong>Hasta el 4 de febrero de 2026</li>
-                    </ul><a
-                        href='https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=c83ce4ce91a4b910VgnVCM100000891ecb1aRCRD&vgnextchannel=8ef7067041169910VgnVCM10000017964802RCRD&vgnextfmt=default'
-                        class="btn-madrid btn">Ver convocatoria</a></p>
-                </div>
-            </div>
+            <div id="lista-abiertas"></div>
         </section>
-        <section id='proximas'>
+        <section id="proximas">
             <h2>Próximas convocatorias</h2>
-            <div class="card card-convocatoria mx-auto">
-                <!--                <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                <div class="card-body">
-                    <h5 class="card-title estado--proxima">
-                        <!--    <i class="bi bi-airplane-engines-fill"></i> -->
-                        <span class="text-white">No hay convocatorias próximas previstas.</span>
-                    </h5>
-                    <p class="card-text">
-                    <ul class='tarjeta__meta'>
-                        <li><strong class="p-1">Plazas:</strong>  </li>
-                        <li><strong class="p-1">Plazo:</strong> </li>
-                    </ul><a
-                        href="#"
-                        class="btn-madrid btn">Ver convocatoria</a></p>
-                </div>
+            <div id="lista-proximas"></div>
+        </section>
 
-        </section>
-        <section id='finalizadas'>
+        <section id="finalizadas">
             <h2>Finalizadas</h2>
-            <div class="card card-convocatoria mx-auto">
-                <!--                <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title estado--finalizada">
-                        <!--    <i class="bi bi-airplane-engines-fill"></i> -->
-                        <span class="text-white">Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre
-                            2024)</span>
-                    </h5>
-                    <p class="card-text">
-                    <ul class='tarjeta__meta'>
-                        <li><strong class="p-1">Plazas:</strong>11</li>
-                        <li><strong class="p-1">Plazo:</strong>Cerrado</li>
-                    </ul><a
-                        href='https://www.madrid.es/portal/site/munimadrid/menuitem.0c57021e0d1f6162c345c34571f1a5a0/?vgnextfmt=default&vgnextoid=a08053bd09acd810VgnVCM2000001f4a900aRCRD&vgnextchannel=4ac5c5dee78fe410VgnVCM1000000b205a0aRCRD&vgnextlocale=es'
-                        class="btn-madrid btn">Ver convocatoria</a></p>
-                </div>
-            </div>
+            <div id="lista-finalizadas"></div>
         </section>
+
         <section id="documentacion" class="my-5">
             <h2 class="mb-4">Documentación de apoyo</h2>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">Cuerpo</th>
-                            <th scope="col">Tipo de documentación</th>
-                            <th scope="col">Documento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Técnico/a Auxiliar TIC</td>
-                            <td>Documentación de apoyo</td>
-                            <td>
-                                <a href="https://notebooklm.google.com/notebook/1bf54086-8eee-47ec-beed-e87ab8865995"
-                                    class="link-primary">
-                                    Cuaderno de NotebookLM (resolución de dudas)
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Técnico/a Auxiliar TIC</td>
-                            <td>Documentación de apoyo</td>
-                            <td>
-                                <a href="https://www.baquedano.es/grupo_C.html" class="link-primary">
-                                    Web no oficial – test similares
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-striped table-bordered">
+                <tbody id="tabla-documentacion"></tbody>
+            </table>
         </section>
 
         <section id="faq" class="my-5">
             <h2 class="mb-4">FAQ</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">Documento</th>
-                            <th scope="col">Descarga</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Guía para inscribirse en el proceso selectivo (PDF)</td>
-                            <td>
-                                <a href="data/Como_inscribirse.pdf" class="link-primary">
-                                    Cómo inscribirse
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-striped table-bordered">
+                <tbody id="tabla-faq"></tbody>
+            </table>
         </section>
-
 
     </main>
     <footer class='pie' style='background-color: #333;'>
