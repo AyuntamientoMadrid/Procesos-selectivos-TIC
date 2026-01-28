@@ -57,7 +57,7 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
             <ul class="tarjeta__meta">
             <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
 
-            ${c.cupo_discapacidadd
+            ${c.cupo_discapacidad
                             ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
                             : ''}
 
