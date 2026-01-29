@@ -8,6 +8,8 @@ Plantilla estática lista para publicar en **GitHub Pages** con un look & feel a
 ├─ index.html
 ├─ css/
 │  └─ estilos.css
+├─ data/
+│  └─ contenido.json
 ├─ js/
 │  └─ app.js
 └─ assets/
@@ -36,8 +38,7 @@ El uso del escudo, isotipo y firma institucional está **regulado** por el Manua
 - Etiquetas ARIA y semántica HTML
 
 ## 🔧 Personalización
-- Edita los datos de ejemplo en `index.html` (tarjetas y listados).
-- Ajusta el color `--azul-madrid` en `css/estilos.css` al código oficial vigente.
+- El contenido se edita en data/contenido.json en todas las secciones de la pagina principal.
 
 ## 🧩 Sin Jekyll
 La plantilla es HTML/CSS/JS puro; no requiere Jekyll.
