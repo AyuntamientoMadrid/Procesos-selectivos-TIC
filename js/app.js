@@ -69,7 +69,8 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
             ? `<a href="${c.url}"
                  class="btn-madrid btn"
                  target="_blank"
-                 rel="noopener noreferrer">
+                 rel="noopener noreferrer"
+                 aria-label="Ver convocatoria (se abre en una pestaña nueva)">
                  Ver convocatoria
                </a>`
             : ''}
