@@ -88,3 +88,12 @@ body {
     outline: 3px solid #99b3ff;
     outline-offset: 2px;
 }
+
+.mensaje-informativo {
+    padding: 0.75rem 1rem;
+    background-color: #f1f3f5;
+    color: #212529;
+    border-left: 4px solid var(--azul-madrid);
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+}

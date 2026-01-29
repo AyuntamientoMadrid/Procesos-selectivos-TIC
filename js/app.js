@@ -37,13 +37,9 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
 
   if (!lista || lista.length === 0) {
     cont.innerHTML = `
-      <div class="card card-convocatoria mx-auto">
-        <div class="card-body">
-          <h5 class="card-title ${estado}">
-            <span class="text-white">${mensajeVacio}</span>
-          </h5>
-        </div>
-      </div>`;
+    <p class="mensaje-informativo">
+      ℹ ${mensajeVacio}
+    </p>`;
     return;
   }
 
@@ -59,21 +55,21 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
             <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
 
             ${c.cupo_discapacidad
-              ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
-              : ''}
+        ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
+        : ''}
 
             <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
           </ul>
 
           ${c.url
-            ? `<a href="${c.url}"
+        ? `<a href="${c.url}"
                  class="btn-madrid btn"
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Ver convocatoria (se abre en una pestaña nueva)">
                  Ver convocatoria
                </a>`
-            : ''}
+        : ''}
         </div>
       </div>
     `);
