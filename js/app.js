@@ -29,7 +29,7 @@ fetch('data/contenido.json')
   .catch(err => console.error('Error cargando el contenido', err));
 
 /* =========================
-   CONVOCATORIAS (tarjetas)
+   CONVOCATORIAS
    ========================= */
 function pintarConvocatorias(id, lista, estado, mensajeVacio) {
   const cont = document.getElementById(id);
@@ -49,53 +49,56 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
 
   lista.forEach(c => {
     cont.insertAdjacentHTML('beforeend', `
-  <div class="card card-convocatoria mx-auto">
-    <div class="card-body">
-      <h5 class="card-title ${estado}">
-        <span class="text-white">${c.titulo}</span>
-      </h5>
+      <div class="card card-convocatoria mx-auto">
+        <div class="card-body">
+          <h5 class="card-title ${estado}">
+            <span class="text-white">${c.titulo}</span>
+          </h5>
 
-      <ul class="tarjeta__meta">
-        <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
+          <ul class="tarjeta__meta">
+            <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
 
-        ${c.cupo_discapacidad
-        ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
-        : ''}
+            ${c.cupo_discapacidad
+              ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
+              : ''}
 
-        <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
-      </ul>
+            <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
+          </ul>
 
-      ${c.url
-        ? `<a href="${c.url}"
-             class="btn-madrid btn"
-             target="_blank"
-             rel="noopener noreferrer">
-             Ver convocatoria
-           </a>`
-        : ''}
-    </div>
-  </div>
-`);
+          ${c.url
+            ? `<a href="${c.url}"
+                 class="btn-madrid btn"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                 Ver convocatoria
+               </a>`
+            : ''}
+        </div>
+      </div>
+    `);
+  });
 }
 
 /* =========================
-   DOCUMENTACIÓN (tabla 3 col)
+   DOCUMENTACIÓN
    ========================= */
 function pintarDocumentacion(lista) {
-    const tbody = document.getElementById('tabla-documentacion');
-    tbody.innerHTML = '';
+  const tbody = document.getElementById('tabla-documentacion');
+  tbody.innerHTML = '';
 
-    if (!lista || lista.length === 0) {
-        tbody.innerHTML = `
-      < tr >
-      <td colspan="3" class="text-center">No hay documentación disponible.</td>
-      </tr > `;
-        return;
-    }
+  if (!lista || lista.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="3" class="text-center">
+          No hay documentación disponible.
+        </td>
+      </tr>`;
+    return;
+  }
 
-    lista.forEach(d => {
-        tbody.insertAdjacentHTML('beforeend', `
-      < tr >
+  lista.forEach(d => {
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr>
         <td>${d.cuerpo}</td>
         <td>${d.tipo}</td>
         <td>
@@ -103,36 +106,38 @@ function pintarDocumentacion(lista) {
             ${d.texto}
           </a>
         </td>
-      </tr >
-      `);
-    });
+      </tr>
+    `);
+  });
 }
 
 /* =========================
-   FAQ (tabla 2 col)
+   FAQ
    ========================= */
 function pintarFAQ(lista) {
-    const tbody = document.getElementById('tabla-faq');
-    tbody.innerHTML = '';
+  const tbody = document.getElementById('tabla-faq');
+  tbody.innerHTML = '';
 
-    if (!lista || lista.length === 0) {
-        tbody.innerHTML = `
-      < tr >
-      <td colspan="2" class="text-center">No hay documentos disponibles.</td>
-      </tr > `;
-        return;
-    }
+  if (!lista || lista.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="2" class="text-center">
+          No hay documentos disponibles.
+        </td>
+      </tr>`;
+    return;
+  }
 
-    lista.forEach(f => {
-        tbody.insertAdjacentHTML('beforeend', `
-      < tr >
+  lista.forEach(f => {
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr>
         <td>${f.texto}</td>
         <td>
           <a href="${f.url}" class="link-primary">
             Descargar
           </a>
         </td>
-      </tr >
-      `);
-    });
+      </tr>
+    `);
+  });
 }
