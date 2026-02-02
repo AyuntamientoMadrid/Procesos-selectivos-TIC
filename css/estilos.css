@@ -97,3 +97,13 @@ body {
     border-radius: 0.25rem;
     font-size: 0.95rem;
 }
+
+.card-convocatoria .tarjeta__meta {
+    padding-left: 1.25rem;   /* <- sangría (ajusta a tu gusto) */
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.card-convocatoria .tarjeta__meta li {
+    margin-bottom: 0.35rem; /* separación entre líneas */
+}
