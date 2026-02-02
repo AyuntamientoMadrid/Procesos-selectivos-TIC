@@ -98,12 +98,12 @@ body {
     font-size: 0.95rem;
 }
 
-.card-convocatoria .tarjeta__meta {
-    padding-left: 1.25rem;   /* <- sangría (ajusta a tu gusto) */
-    margin-top: 0.75rem;
-    margin-bottom: 1rem;
+.card-convocatoria .tarjeta__meta{
+  margin: .75rem 0 1rem !important;  /* separaciones coherentes */
+  padding-left: 0 !important;         /* quitamos padding por defecto */
 }
 
-.card-convocatoria .tarjeta__meta li {
-    margin-bottom: 0.35rem; /* separación entre líneas */
+.card-convocatoria .tarjeta__meta > li{
+  margin-left: 1.25rem !important;    /* <- SANGRÍA REAL */
+  margin-bottom: .35rem;
 }
