@@ -10,17 +10,17 @@ fetch('data/contenido.json')
     );
 
     pintarConvocatorias(
-      'lista-proximas',
-      data.proximas,
-      'estado--proxima',
-      'No hay convocatorias próximas previstas.'
+      'lista-desarrollo',
+      data.desarrollo,
+      'estado--desarrollo',
+      'No hay procesos en desarrollo.'
     );
 
     pintarConvocatorias(
       'lista-finalizadas',
       data.finalizadas,
       'estado--finalizada',
-      'No hay convocatorias finalizadas.'
+      'No hay procesos finalizados.'
     );
 
     pintarDocumentacion(data.documentacion);

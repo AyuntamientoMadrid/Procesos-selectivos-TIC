@@ -1,15 +1,15 @@
 {
   "abiertas": [
+    
+  ],
+  "desarrollo": [
     {
       "titulo": "Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre 2025)",
       "plazas": "18",
       "cupo_discapacidad": "2",
-      "plazo": "Cerrado (el plazo presentación de solicitudes finalizó el 4 de febrero)",
+      "plazo": "Cerrado (4 de febrero)",
       "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=c83ce4ce91a4b910VgnVCM100000891ecb1aRCRD"
-    }
-  ],
-  "proximas": [],
-  "finalizadas": [
+    },
     {
       "titulo": "Técnico/a Auxiliar TIC del Ayuntamiento de Madrid (turno libre 2024)",
       "plazas": "11",
@@ -30,7 +30,9 @@
       "cupo_discapacidad": "3",
       "plazo": "Cerrado",
       "url": "https://www.madrid.es/portal/site/munimadrid/menuitem.0c57021e0d1f6162c345c34571f1a5a0/?vgnextfmt=default&vgnextoid=917c781b1a40b810VgnVCM1000001d4a900aRCRD&vgnextchannel=4ac5c5dee78fe410VgnVCM1000000b205a0aRCRD&vgnextlocale=es"
-    },
+    }
+  ],
+  "finalizadas": [
     {
       "titulo": "Técnico/a Medio TIC del Ayuntamiento de Madrid (turno libre 2021)",
       "plazas": "2",
