@@ -49,6 +49,12 @@
     }
   ],
   "documentacion": [
+     {
+      "cuerpo": "General",
+      "tipo": "Documentación oficial",
+      "texto": "Bases generales para procesos selectivos, personal funcinario, turno acceso libre",
+      "url": "https://www.madrid.es/UnidadWeb/Contenidos/Oposiciones/00_BasesGralFuncionario/BasesTurnoLibre.pdf"
+    },
     {
       "cuerpo": "Técnico/a Auxiliar TIC",
       "tipo": "Documentación de apoyo",
