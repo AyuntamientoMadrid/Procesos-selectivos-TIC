@@ -45,32 +45,44 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
 
   lista.forEach(c => {
     cont.insertAdjacentHTML('beforeend', `
-      <div class="card card-convocatoria mx-auto">
-        <div class="card-body">
-          <h5 class="card-title ${estado}">
-            <span class="text-white">${c.titulo}</span>
-          </h5>
-
-          <ul class="tarjeta__meta">
-            <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
-
-            ${c.cupo_discapacidad
+      <div class="row mb-3">
+      <div class="col-md-4">
+      <div class="card card-convocatoria border-0">
+      <div class="card-body">
+        <h5 class="card-title ${estado}">
+        <span class="text-white">${c.titulo}</span>
+        </h5>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card card-convocatoria border-0">
+      <div class="card-body">
+        <ul class="tarjeta__meta">
+        <li><strong>Plazas:</strong> ${c.plazas || '-'}</li>
+        ${c.cupo_discapacidad
         ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
         : ''}
-
-            <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
-          </ul>
-
-          ${c.url
-        ? `<a href="${c.url}"
-                 class="btn-madrid btn"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 aria-label="Ver convocatoria (se abre en una pestaña nueva)">
-                 Ver convocatoria
-               </a>`
-        : ''}
-        </div>
+        <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card card-convocatoria border-0">
+      <div class="card-body">
+        ${c.url
+      ? `<a href="${c.url}"
+         class="btn-madrid btn"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Ver convocatoria (se abre en una pestaña nueva)">
+         Ver convocatoria
+         </a>`
+      : ''}
+      </div>
+      </div>
+      </div>
       </div>
     `);
   });
@@ -138,3 +150,20 @@ function pintarFAQ(lista) {
     `);
   });
 }
+
+function activarItinerarios() {
+  const botones = document.querySelectorAll('.itinerario__imagen');
+
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      const destino = boton.dataset.target;
+      const descripcion = document.getElementById(destino);
+      if (!descripcion) return;
+
+      const estaOculta = descripcion.classList.toggle('d-none');
+      boton.setAttribute('aria-expanded', String(!estaOculta));
+    });
+  });
+}
+
+activarItinerarios();

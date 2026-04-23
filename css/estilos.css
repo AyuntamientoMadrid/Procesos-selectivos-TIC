@@ -108,3 +108,67 @@ body {
   margin-left: 1.25rem !important;    /* <- SANGRÍA REAL */
   margin-bottom: .35rem;
 }
+.introduccion h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.85rem, 2.5vw, 2.5rem);
+    color: var(--azul-madrid);
+}
+
+.intro-text,
+.intro-final {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #404040;
+    text-align: justify;
+}
+
+.introduccion .row {
+    gap: 0.5rem;
+}
+
+.itinerario {
+    border: 1px solid #dee2e6;
+    border-radius: .75rem;
+    padding: 0.5rem;
+    background: #ffffff;
+    min-width: 0;
+}
+
+@media (min-width: 992px) {
+    .itinerario {
+        flex: 0 0 calc(25% - 0.375rem) !important;
+    }
+}
+
+.itinerario__imagen {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.itinerario__imagen img {
+    width: 100%;
+    border-radius: .75rem;
+    display: block;
+    transition: transform .25s ease;
+}
+
+.itinerario__imagen:hover img,
+.itinerario__imagen:focus-visible img {
+    transform: scale(1.02);
+}
+
+.itinerario h3 {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.itinerario__descripcion {
+    margin-top: 0.75rem;
+    color: var(--gris-madrid);
+    text-align: justify;
+}
