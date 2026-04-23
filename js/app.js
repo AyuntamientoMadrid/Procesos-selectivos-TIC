@@ -31,6 +31,20 @@ fetch('data/contenido.json')
 /* =========================
    CONVOCATORIAS
    ========================= */
+function dividirTitulo(titulo) {
+  const match = titulo.match(/^(.+?)\s*\((.+)\)$/);
+  if (match) {
+    return {
+      principal: match[1].trim(),
+      secundario: `(${match[2]})`
+    };
+  }
+  return {
+    principal: titulo,
+    secundario: ''
+  };
+}
+
 function pintarConvocatorias(id, lista, estado, mensajeVacio) {
   const cont = document.getElementById(id);
   cont.innerHTML = '';
@@ -44,13 +58,15 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
   }
 
   lista.forEach(c => {
+    const tituloDividido = dividirTitulo(c.titulo);
     cont.insertAdjacentHTML('beforeend', `
       <div class="row mb-3">
       <div class="col-md-4">
       <div class="card card-convocatoria border-0">
       <div class="card-body">
         <h5 class="card-title ${estado}">
-        <span class="text-white">${c.titulo}</span>
+        <span class="text-white">${tituloDividido.principal}</span>
+        ${tituloDividido.secundario ? `<br><small class="text-white">${tituloDividido.secundario}</small>` : ''}
         </h5>
       </div>
       </div>
@@ -77,7 +93,7 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
          target="_blank"
          rel="noopener noreferrer"
          aria-label="Ver convocatoria (se abre en una pestaña nueva)">
-         Ver convocatoria
+         Ver convocatoria <i class="bi bi-box-arrow-up-right ms-2" aria-hidden="true"></i>
          </a>`
       : ''}
       </div>
