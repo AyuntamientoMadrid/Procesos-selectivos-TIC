@@ -172,12 +172,13 @@ function activarItinerarios() {
 
   botones.forEach(boton => {
     boton.addEventListener('click', () => {
-      const destino = boton.dataset.target;
-      const descripcion = document.getElementById(destino);
-      if (!descripcion) return;
-
-      const estaOculta = descripcion.classList.toggle('d-none');
-      boton.setAttribute('aria-expanded', String(!estaOculta));
+      const descripciones = document.querySelectorAll('.itinerario__descripcion');
+      descripciones.forEach(descripcion => {
+        descripcion.classList.remove('d-none');
+      });
+      botones.forEach(btn => {
+        btn.setAttribute('aria-expanded', 'true');
+      });
     });
   });
 }
