@@ -1,6 +1,19 @@
 {
   "abiertas": [
-    
+    {
+      "titulo": "Técnico/a Superior TIC (turno libre 2026)",
+      "plazas": "Aún no publicado",
+      "cupo_discapacidad": "Aún no publicado",
+      "plazo": "Pendiente de publicación",
+      "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=063eb5cd03e9c910VgnVCM200000f921e388RCRD&vgnextchannel=8ef7067041169910VgnVCM10000017964802RCRD&vgnextfmt=default"
+    },
+    {
+      "titulo": "Técnico/a Medio TIC (turno libre 2026)",
+      "plazas": "26",
+      "cupo_discapacidad": "3",
+      "plazo": "Pendiente de publicación",
+      "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=264626d454e9c910VgnVCM200000f921e388RCRD&vgnextchannel=8ef7067041169910VgnVCM10000017964802RCRD&vgnextfmt=default"
+    }  
   ],
   "desarrollo": [
     {
@@ -9,7 +22,9 @@
       "cupo_discapacidad": "2",
       "plazo": "Cerrado (4 de febrero)",
       "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=c83ce4ce91a4b910VgnVCM100000891ecb1aRCRD"
-    },
+    }
+  ],
+  "finalizadas": [
     {
       "titulo": "Técnico/a Superior TIC (turno libre 2024)",
       "plazas": "13",
@@ -23,9 +38,7 @@
       "cupo_discapacidad": "3",
       "plazo": "Cerrado",
       "url": "https://www.madrid.es/portal/site/munimadrid/menuitem.0c57021e0d1f6162c345c34571f1a5a0/?vgnextfmt=default&vgnextoid=917c781b1a40b810VgnVCM1000001d4a900aRCRD&vgnextchannel=4ac5c5dee78fe410VgnVCM1000000b205a0aRCRD&vgnextlocale=es"
-    }
-  ],
-  "finalizadas": [
+    },
     {
       "titulo": "Técnico/a Auxiliar TIC (turno libre 2024)",
       "plazas": "11",
