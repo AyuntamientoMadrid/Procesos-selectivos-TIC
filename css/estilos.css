@@ -99,6 +99,14 @@ body {
     font-size: 0.95rem;
 }
 
+.plazo-destacado {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
 .card-convocatoria .tarjeta__meta{
   margin: .75rem 0 1rem !important;  /* separaciones coherentes */
   padding-left: 0 !important;         /* quitamos padding por defecto */

@@ -79,7 +79,7 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
         ${c.cupo_discapacidad
         ? `<li><strong>Cupo de discapacidad:</strong> ${c.cupo_discapacidad}</li>`
         : ''}
-        <li><strong>Plazo:</strong> ${c.plazo || '-'}</li>
+        <li class="${c.titulo === 'Técnico/a Medio TIC (turno libre 2026)' ? 'plazo-destacado' : ''}"><strong>Plazo:</strong> ${c.plazo || '-'}</li>
         </ul>
       </div>
       </div>
