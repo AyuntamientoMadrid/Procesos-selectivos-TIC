@@ -1,4 +1,39 @@
 {
+  "introduccion": {
+    "titulo": "PROCESOS SELECTIVOS TIC EN EL AYUNTAMIENTO DE MADRID",
+    "texto": "<p>Madrid es una ciudad dinámica y compleja en la que viven 3,3 millones de personas y en su Ayuntamiento trabajan 30.000 empleados y empleadas que tienen la vocación de servicio público como eje de sus valores.</p><p>Los servicios tecnológicos que damos desde <strong>IAM (Informática del Ayuntamiento de Madrid)</strong> tienen un impacto real en la vida de la ciudadanía. Ya estamos muy presentes en su día a día, mediante aplicaciones de movilidad, reservas deportivas, gestión de sugerencias y reclamaciones, trámites, salud… Gracias a estos servicios, facilitamos que miles de personas interactúen de forma más ágil y sencilla con su Ayuntamiento. Pero queremos ir más allá. Nuestro propósito es utilizar la tecnología para construir una administración más cercana, accesible, inclusiva y centrada en responder mejor a las necesidades de las personas.</p><p>La <strong>estrategia de transformación digital 2023-2027</strong> del Ayuntamiento de Madrid, <a href=\"https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transformacion-Digital-/Principales-actuaciones/Estrategia-de-Transformacion-Digital/Estrategia-de-Transformacion-Digital/?vgnextoid=9cdec9b717314810VgnVCM2000001f4a900aRCRD&vgnextchannel=f94c3560c6314810VgnVCM1000001d4a900aRCRD\" target=\"_blank\" rel=\"noopener noreferrer\">Madrid Capital Digital</a>, es ambiciosa. Pretende mejorar la vida de la ciudadanía a través del desarrollo de servicios digitales y el uso inteligente de los datos para una mejor gestión de la ciudad. Estamos convencidos de que Madrid puede afianzarse como un polo de innovación digital de referencia. Para ello, hemos puesto en marcha varias líneas de trabajo:</p>",
+    "texto_final": "<p>Para avanzar en estos ámbitos necesitamos <strong>talento</strong>. Mujeres y hombres especializados en <strong>STEM</strong> (capacidades en las áreas de Ciencia, Tecnología, Ingeniería y Matemáticas) que quieran trabajar con proyectos únicos e innovadores que tengan impacto real en la sociedad y contribuyan al servicio público.</p><p>Queremos además seguir incorporando <strong>talento femenino</strong> al ámbito tecnológico, porque creemos en equipos diversos que aporten diferentes perspectivas y en una administración que represente mejor a la sociedad a la que sirve.</p><p>Trabajar en el Ayuntamiento de Madrid significa desarrollar tu carrera <strong>en un entorno estable, con formación continua y buenas condiciones profesionales.</strong> Nuestros equipos TIC (auxiliares, medios y superiores) trabajan 37,5 horas semanales, cuentan con dos días de teletrabajo y tienen la oportunidad de participar en proyectos que contribuyen cada día a mejorar la vida de la ciudadanía.</p><p><strong>¿Te vienes?</strong></p>"
+  },
+  "itinerarios": [
+    {
+      "id": 1,
+      "titulo": "IA",
+      "imagen": "assets/img/maia.svg",
+      "alt": "Itinerario Inteligencia artificial",
+      "descripcion": "Madrid Inteligencia Artificial (MAIA) es la iniciativa transversal de IA en el Ayuntamiento de Madrid. Está coordinada por la Oficina Digital, el área delegada de innovación y emprendimiento y el Organismo Informática del Ayuntamiento de Madrid. Contamos con una plataforma de IA en nube que nos permite trabajar con los modelos de IA generativa más recientes, y que nos ha permitido desarrollar casos de uso en producción como el asistente de servicios sociales, el anonimizador de documentos o el clasificador de sugerencias y reclamaciones."
+    },
+    {
+      "id": 2,
+      "titulo": "Datos",
+      "imagen": "assets/img/datos.svg",
+      "alt": "Itinerario Datos",
+      "descripcion": "La Plataforma del dato del Ayuntamiento de Madrid es un repositorio único de datos de alta calidad, con un modelo de gobernanza y acceso común en el que los clientes consumen los datos en modo autoservicio. Algunos de los servicios que utilizan estos datos son el gemelo digital de la ciudad, Sueña Madrid, el Geoportal municipal, el laboratorio tributario Tax Lab, y la iniciativa de Smart City Madrid Inteligente (MiNT)."
+    },
+    {
+      "id": 3,
+      "titulo": "Ciberseguridad",
+      "imagen": "assets/img/ccmad.svg",
+      "alt": "Itinerario de Ciberseguridad",
+      "descripcion": "CCMAD, nuestro centro de ciberseguridad, se dedica a la inteligencia de amenazas y vulnerabilidades, monitoriza y detecta a ciberataques y también se encarga de realizar auditorías técnicas, asegurar el cumplimiento normativo, concienciar a los empleados y gestionar la identidad electrónica del personal y los sistemas municipales."
+    },
+    {
+      "id": 4,
+      "titulo": "Cloud",
+      "imagen": "assets/img/cloud.svg",
+      "alt": "Itinerario Cloud",
+      "descripcion": "Madrid MultiCloud es el habilitador que proporciona infraestructura en nube para todos los proyectos de transformación digital del Ayuntamiento. Asegura la flexibilidad, seguridad y agilidad de los servicios municipales gracias a una red de proveedores de servicios cloud, entre los que se encuentran Google Cloud, Microsoft Azure, AWS y muchos más."
+    }
+  ],
   "abiertas": [
     {
       "titulo": "Técnico/a Superior TIC (turno libre 2026)",

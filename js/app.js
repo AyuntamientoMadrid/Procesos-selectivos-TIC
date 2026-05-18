@@ -2,6 +2,9 @@ fetch('data/contenido.json')
   .then(r => r.json())
   .then(data => {
 
+    pintarIntroduccion(data.introduccion);
+    pintarItinerarios(data.itinerarios);
+
     pintarConvocatorias(
       'lista-abiertas',
       data.abiertas,
@@ -27,6 +30,69 @@ fetch('data/contenido.json')
     pintarFAQ(data.faq);
   })
   .catch(err => console.error('Error cargando el contenido', err));
+
+/* =========================
+   INTRODUCCIÓN
+   ========================= */
+function pintarIntroduccion(introduccion) {
+  const titulo = document.getElementById('intro-titulo');
+  const texto = document.getElementById('intro-texto');
+  const textoFinal = document.getElementById('intro-final');
+
+  if (introduccion) {
+    if (titulo) titulo.textContent = introduccion.titulo;
+    if (texto) texto.innerHTML = introduccion.texto;
+    if (textoFinal) textoFinal.innerHTML = introduccion.texto_final;
+  }
+}
+
+/* =========================
+   ITINERARIOS
+   ========================= */
+function pintarItinerarios(itinerarios) {
+  const container = document.getElementById('itinerarios-container');
+  container.innerHTML = '';
+
+  if (!itinerarios || itinerarios.length === 0) {
+    container.innerHTML = '<p class="mensaje-informativo">No hay itinerarios disponibles.</p>';
+    return;
+  }
+
+  itinerarios.forEach((it, index) => {
+    const descId = `itinerario-${it.id}-desc`;
+    container.insertAdjacentHTML('beforeend', `
+      <article class="col-12 col-md-6 col-lg-3 itinerario">
+        <button type="button" class="itinerario__imagen" data-target="${descId}" aria-expanded="false" aria-controls="${descId}">
+          <img src="${it.imagen}" alt="${it.alt}">
+        </button>
+        <h3>${it.titulo}</h3>
+        <div class="itinerario__descripcion d-none" id="${descId}">
+          ${it.descripcion}
+        </div>
+      </article>
+    `);
+  });
+
+  agregarEventosItinerarios();
+}
+
+function agregarEventosItinerarios() {
+  const botones = document.querySelectorAll('.itinerario__imagen');
+  botones.forEach(boton => {
+    boton.addEventListener('click', function() {
+      // Mostrar todas las descripciones
+      const todasLasDescripciones = document.querySelectorAll('.itinerario__descripcion');
+      todasLasDescripciones.forEach(desc => {
+        desc.classList.remove('d-none');
+      });
+      
+      // Actualizar el estado aria-expanded de todos los botones
+      botones.forEach(b => {
+        b.setAttribute('aria-expanded', 'true');
+      });
+    });
+  });
+}
 
 /* =========================
    CONVOCATORIAS
