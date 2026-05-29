@@ -37,9 +37,10 @@
   "abiertas": [
     {
       "titulo": "Técnico/a Superior TIC (turno libre 2026)",
-      "plazas": "Aún no publicado",
-      "cupo_discapacidad": "Aún no publicado",
-      "plazo": "Pendiente de publicación",
+      "plazas": "18",
+      "cupo_discapacidad": "2",
+      "plazo": "Inminente",
+      "plazo_destacado": true,
       "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=063eb5cd03e9c910VgnVCM200000f921e388RCRD&vgnextchannel=8ef7067041169910VgnVCM10000017964802RCRD&vgnextfmt=default"
     },
     {
@@ -47,6 +48,7 @@
       "plazas": "26",
       "cupo_discapacidad": "3",
       "plazo": "hasta el 4 de junio de 2026",
+      "plazo_destacado": true,
       "url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=264626d454e9c910VgnVCM200000f921e388RCRD&vgnextchannel=8ef7067041169910VgnVCM10000017964802RCRD&vgnextfmt=default"
     }  
   ],
