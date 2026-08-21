@@ -232,3 +232,121 @@ body {
     background: #adb5bd;
     border-radius: 4px;
 }
+
+/* Question Typography */
+.question-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+.question-lead {
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.question-paragraph {
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.question-number {
+    font-weight: 800;
+}
+
+/* Code Blocks & Syntax Highlighting */
+.code-block-wrapper {
+    background-color: #1e2227;
+    border: 1px solid #333842;
+    border-radius: 8px;
+    margin: 1.1rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.code-block-header {
+    background-color: #21252b;
+    border-bottom: 1px solid #2c313a;
+    padding: 0.4rem 0.85rem;
+}
+
+.code-block-header .badge {
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+}
+
+.btn-copy-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-code:focus-visible {
+    outline: 2px solid #ffffff !important;
+    outline-offset: 1px;
+}
+
+.code-block-pre {
+    background-color: #1e2227 !important;
+    color: #abb2bf !important;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    padding: 1rem 1.25rem;
+    margin: 0;
+    overflow-x: auto;
+    white-space: pre;
+    tab-size: 4;
+}
+
+.code-block-pre code {
+    color: inherit;
+    font-family: inherit;
+    background: transparent;
+    padding: 0;
+}
+
+/* Syntax Highlighting Tokens */
+.token-annotation {
+    color: #e5c07b;
+    font-weight: 600;
+}
+
+.token-keyword {
+    color: #c678dd;
+    font-weight: 600;
+}
+
+.token-string {
+    color: #98c379;
+}
+
+.token-comment {
+    color: #828997;
+    font-style: italic;
+}
+
+.token-type {
+    color: #61afef;
+    font-weight: 600;
+}
+
+.token-builtin {
+    color: #56b6c2;
+    font-weight: 600;
+}
+
+/* Inline Code */
+.code-inline {
+    background-color: #eef2f6;
+    color: #b02a37;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.88em;
+    font-weight: 600;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid #d0d7de;
+    word-break: break-word;
+}
+

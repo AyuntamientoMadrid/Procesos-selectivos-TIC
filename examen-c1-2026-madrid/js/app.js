@@ -246,7 +246,7 @@ class QuizEngine {
                         <input class="form-check-input me-3 mt-1" type="radio" name="q_${q.id}" id="opt_${q.id}_${key}" 
                                value="${key}" ${selectedOpt === key ? 'checked' : ''} ${disabledAttr} onchange="quiz.selectOption('${key}')">
                         <label class="form-check-label flex-grow-1 cursor-pointer" for="opt_${q.id}_${key}">
-                            <strong class="text-primary me-1">${key.toUpperCase()})</strong> ${this.escapeHTML(q.options[key])} ${badgeHTML}
+                            <strong class="text-primary me-1">${key.toUpperCase()})</strong> ${this.formatOptionText(q.options[key])} ${badgeHTML}
                         </label>
                     </div>
                 </div>
@@ -272,7 +272,7 @@ class QuizEngine {
                         </button>
                     </div>
                 </div>
-                <legend class="h5 question-text fw-bold mb-4 text-dark" id="q_legend_${q.id}">${q.id}. ${this.escapeHTML(q.question)}</legend>
+                <legend class="h5 question-text mb-4 text-dark" id="q_legend_${q.id}">${this.formatQuestionContent(q.question, q.id)}</legend>
                 <div class="options-group" role="radiogroup" aria-labelledby="q_legend_${q.id}">${optionsHTML}</div>
                 ${instantCheckBtn}
             </fieldset>
@@ -540,7 +540,7 @@ class QuizEngine {
                         <span class="badge bg-light text-dark">${statusText}</span>
                     </div>
                     <div class="card-body">
-                        <p class="fw-bold text-dark mb-3">${q.id}. ${this.escapeHTML(q.question)}</p>
+                        <div class="question-text mb-3 text-dark">${this.formatQuestionContent(q.question, q.id)}</div>
                         <div class="list-group">
                             ${this.renderReviewOption(q, 'a', userAns)}
                             ${this.renderReviewOption(q, 'b', userAns)}
@@ -572,7 +572,7 @@ class QuizEngine {
 
         return `
             <div class="list-group-item ${bgClass}">
-                <strong>${key.toUpperCase()})</strong> ${this.escapeHTML(q.options[key])} ${badge}
+                <strong>${key.toUpperCase()})</strong> ${this.formatOptionText(q.options[key])} ${badge}
             </div>
         `;
     }
@@ -591,5 +591,151 @@ class QuizEngine {
 
     escapeHTML(str) {
         return str ? str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;") : "";
+    }
+
+    formatQuestionContent(rawText, qId = null) {
+        if (!rawText) return '';
+
+        const prefix = qId ? `<span class="question-number text-primary fw-bold me-2">${qId}.</span>` : '';
+
+        // Extract code blocks ```lang ... ```
+        const codeBlocks = [];
+        let processedText = rawText.replace(/```([a-zA-Z0-9_-]*)\s*\n([\s\S]*?)```/g, (match, lang, code) => {
+            const index = codeBlocks.length;
+            codeBlocks.push({ lang: (lang || '').toUpperCase(), code: code.trim() });
+            return `__CODE_BLOCK_${index}__`;
+        });
+
+        // Extract inline code `...`
+        const inlineCodes = [];
+        processedText = processedText.replace(/`([^`\n]+)`/g, (match, inline) => {
+            const index = inlineCodes.length;
+            inlineCodes.push(inline);
+            return `__INLINE_CODE_${index}__`;
+        });
+
+        // Escape HTML on the remaining text
+        const html = this.escapeHTML(processedText);
+
+        // Split paragraphs by double newlines \n\n
+        const paragraphs = html.split(/\n\s*\n/);
+        const formattedParagraphs = paragraphs.map((p, idx) => {
+            const trimmed = p.trim();
+            if (!trimmed) return '';
+            if (/^__CODE_BLOCK_\d+__$/.test(trimmed)) {
+                return trimmed;
+            }
+            const withBreaks = trimmed.replace(/\n/g, '<br>');
+            if (idx === 0 && prefix) {
+                return `<div class="question-lead mb-2">${prefix}${withBreaks}</div>`;
+            }
+            return `<div class="question-paragraph mb-2">${withBreaks}</div>`;
+        }).filter(Boolean);
+
+        let finalHtml = formattedParagraphs.join('');
+
+        // Restore inline codes
+        finalHtml = finalHtml.replace(/__INLINE_CODE_(\d+)__/g, (match, idx) => {
+            const item = inlineCodes[parseInt(idx, 10)];
+            return `<code class="code-inline">${this.escapeHTML(item)}</code>`;
+        });
+
+        // Restore code blocks
+        finalHtml = finalHtml.replace(/__CODE_BLOCK_(\d+)__/g, (match, idx) => {
+            const item = codeBlocks[parseInt(idx, 10)];
+            const langTitle = item.lang ? item.lang : 'CÓDIGO';
+            const highlighted = this.highlightCode(item.code, item.lang);
+            return `
+                <div class="code-block-wrapper my-3 border rounded shadow-sm overflow-hidden">
+                    <div class="code-block-header bg-dark text-white px-3 py-1.5 d-flex justify-content-between align-items-center">
+                        <span class="badge bg-secondary font-monospace">${this.escapeHTML(langTitle)}</span>
+                        <button type="button" class="btn btn-sm btn-outline-light py-0 px-2 btn-copy-code" onclick="quiz.copyCode(this)" aria-label="Copiar fragmento de código">📋 Copiar</button>
+                    </div>
+                    <pre class="code-block-pre m-0 p-3 bg-dark text-white overflow-x-auto"><code class="font-monospace">${highlighted}</code></pre>
+                </div>
+            `;
+        });
+
+        return finalHtml;
+    }
+
+    formatOptionText(rawText) {
+        if (!rawText) return '';
+        const inlineCodes = [];
+        let processedText = rawText.replace(/`([^`\n]+)`/g, (match, inline) => {
+            const index = inlineCodes.length;
+            inlineCodes.push(inline);
+            return `__INLINE_CODE_${index}__`;
+        });
+        let html = this.escapeHTML(processedText);
+        html = html.replace(/__INLINE_CODE_(\d+)__/g, (match, idx) => {
+            const item = inlineCodes[parseInt(idx, 10)];
+            return `<code class="code-inline">${this.escapeHTML(item)}</code>`;
+        });
+        return html;
+    }
+
+    highlightCode(code, lang) {
+        lang = (lang || '').toUpperCase();
+        let escaped = this.escapeHTML(code);
+
+        if (lang === 'JAVA') {
+            const pattern = /(\/\/[^\n]*)|(&quot;[^&]*?&quot;)|(@\w+)|\b(public|class|private|protected|void|new|return|import|package|int|boolean|throw|throws|try|catch|finally|if|else|static|final)\b|\b(EntityManager|Incidencia|Auditoria|String|Long|Integer|List|Map|Set|RuntimeException|Exception)\b/g;
+            return escaped.replace(pattern, (match, comment, str, annotation, keyword, type) => {
+                if (comment) return `<span class="token-comment">${comment}</span>`;
+                if (str) return `<span class="token-string">${str}</span>`;
+                if (annotation) return `<span class="token-annotation">${annotation}</span>`;
+                if (keyword) return `<span class="token-keyword">${keyword}</span>`;
+                if (type) return `<span class="token-type">${type}</span>`;
+                return match;
+            });
+        } else if (lang === 'SQL') {
+            const pattern = /(--[^\n]*)|(&#039;[^&#]*?&#039;|&quot;[^&]*?&quot;)|\b(SELECT|FROM|WHERE|ORDER\s+BY|GROUP\s+BY|HAVING|INSERT\s+INTO|VALUES|UPDATE|SET|DELETE|AND|OR|NOT|IN|LIKE|IS|NULL|DESC|ASC|CURRENT_DATE|ROLLBACK|COMMIT|BEGIN)\b/gi;
+            return escaped.replace(pattern, (match, comment, str, keyword) => {
+                if (comment) return `<span class="token-comment">${comment}</span>`;
+                if (str) return `<span class="token-string">${str}</span>`;
+                if (keyword) return `<span class="token-keyword">${keyword}</span>`;
+                return match;
+            });
+        } else if (lang === 'JAVASCRIPT' || lang === 'JS') {
+            const pattern = /(\/\/[^\n]*)|(&quot;[^&]*?&quot;|&#039;[^&#]*?&#039;)|\b(const|let|var|function|return|new|import|export|if|else|async|await)\b|\b(fetch|then|catch|setInterval|setTimeout|console|log|json)\b/g;
+            return escaped.replace(pattern, (match, comment, str, keyword, builtin) => {
+                if (comment) return `<span class="token-comment">${comment}</span>`;
+                if (str) return `<span class="token-string">${str}</span>`;
+                if (keyword) return `<span class="token-keyword">${keyword}</span>`;
+                if (builtin) return `<span class="token-builtin">${builtin}</span>`;
+                return match;
+            });
+        } else if (lang === 'HTTP') {
+            const pattern = /\b(GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS)\b|\b(Authorization|Bearer|Host|Content-Type|Accept|User-Agent)\b/g;
+            return escaped.replace(pattern, (match, method, header) => {
+                if (method) return `<span class="token-keyword">${method}</span>`;
+                if (header) return `<span class="token-type">${header}</span>`;
+                return match;
+            });
+        }
+
+        return escaped;
+    }
+
+    copyCode(btn) {
+        const wrapper = btn.closest('.code-block-wrapper');
+        if (!wrapper) return;
+        const codeEl = wrapper.querySelector('code');
+        if (!codeEl) return;
+
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Copiado';
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-outline-light');
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-light');
+            }, 2000);
+        }).catch(err => {
+            console.error('Error copying code to clipboard:', err);
+        });
     }
 }

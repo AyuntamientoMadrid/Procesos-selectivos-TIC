@@ -17,7 +17,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 2,
-      "question": "Se tiene el siguiente servicio EJB Stateless con transacciones gestionadas por el contenedor:\n\nJava@Stateless\npublic class IncidenciaService {\n @PersistenceContext\n private EntityManager em;\n public void registrarIncidencia(Incidencia incidencia) {\n em.persist(incidencia);\n Auditoria auditoria = new Auditoria();\n auditoria.setAccion(\"ALTA_INCIDENCIA\");\n auditoria.setIdIncidencia(incidencia.getId());\n em.persist(auditoria);\n }\n}\n\nAl ejecutar registrarIncidencia(), se produce una excepción de tipo RuntimeException durante la inserción de la entrada en la tabla de auditoría. ¿Qué comportamiento es esperable por defecto?",
+      "question": "Se tiene el siguiente servicio EJB Stateless con transacciones gestionadas por el contenedor:\n\n```java\n@Stateless\npublic class IncidenciaService {\n    @PersistenceContext\n    private EntityManager em;\n\n    public void registrarIncidencia(Incidencia incidencia) {\n        em.persist(incidencia);\n        Auditoria auditoria = new Auditoria();\n        auditoria.setAccion(\"ALTA_INCIDENCIA\");\n        auditoria.setIdIncidencia(incidencia.getId());\n        em.persist(auditoria);\n    }\n}\n```\n\nAl ejecutar registrarIncidencia(), se produce una excepción de tipo RuntimeException durante la inserción de la entrada en la tabla de auditoría. ¿Qué comportamiento es esperable por defecto?",
       "options": {
         "a": "Se revierte toda la transacción.",
         "b": "Se persiste la incidencia y solo se descarta la auditoría.",
@@ -27,7 +27,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 3,
-      "question": "El panel de la sala de coordinación debe mostrar incidencias no cerradas. Se revisa esta consulta:\n\nSELECT id_incidencia, tipo, prioridad, estado, fecha_alta\nFROM incidencias\nWHERE estado <> 'CERRADA'\n AND fecha_alta > CURRENT_DATE\nORDER BY prioridad DESC, fecha_alta ASC;\n\nAlgunas incidencias abiertas de días anteriores no aparecen en el panel. ¿Cuál es la causa más probable?",
+      "question": "El panel de la sala de coordinación debe mostrar incidencias no cerradas. Se revisa esta consulta:\n\n```sql\nSELECT id_incidencia, tipo, prioridad, estado, fecha_alta\nFROM incidencias\nWHERE estado <> 'CERRADA'\n  AND fecha_alta > CURRENT_DATE\nORDER BY prioridad DESC, fecha_alta ASC;\n```\n\nAlgunas incidencias abiertas de días anteriores no aparecen en el panel. ¿Cuál es la causa más probable?",
       "options": {
         "a": "La condición fecha_alta > CURRENT_DATE excluye incidencias abiertas anteriores al día actual.",
         "b": "ORDER BY elimina automáticamente las incidencias antiguas.",
@@ -47,7 +47,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 5,
-      "question": "Una comisaría dispone de la red 192.168.20.0/24 y necesita segmentarla según los siguientes requisitos:\nRed de Usuarios: 120 dispositivos\nRed de Servidores: 25 dispositivos\nRed de Impresoras: 12 dispositivos\nRed de Videovigilancia: 8 dispositivos\n¿Cuál de las siguientes propuestas de segmentación con VLSM es la más eficiente y correcta?",
+      "question": "Una comisaría dispone de la red `192.168.20.0/24` y necesita segmentarla según los siguientes requisitos:\n• Red de Usuarios: 120 dispositivos\n• Red de Servidores: 25 dispositivos\n• Red de Impresoras: 12 dispositivos\n• Red de Videovigilancia: 8 dispositivos\n\n¿Cuál de las siguientes propuestas de segmentación con VLSM es la más eficiente y correcta?",
       "options": {
         "a": "/25 (Usuarios) – /27 (Servidores) – /28 (Impresoras) – /28 (Videovigilancia)",
         "b": "/24 (Usuarios) – /27 (Servidores) – /28 (Impresoras) – /28 (Videovigilancia)",
@@ -67,7 +67,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 7,
-      "question": "El panel operativo de la sala de coordinación debe mostrar nuevas incidencias sin refrescar manualmente. Actualmente realiza:\n\nsetInterval(() => {\n fetch(\"/api/incidencias/activas\")\n .then(r => r.json())\n .then(datos => pintarPanel(datos));\n}, 300000);\n\n¿Qué problema tiene esta configuración?",
+      "question": "El panel operativo de la sala de coordinación debe mostrar nuevas incidencias sin refrescar manualmente. Actualmente realiza:\n\n```javascript\nsetInterval(() => {\n    fetch(\"/api/incidencias/activas\")\n        .then(r => r.json())\n        .then(datos => pintarPanel(datos));\n}, 300000);\n```\n\n¿Qué problema tiene esta configuración?",
       "options": {
         "a": "Actualiza el panel cada 5 minutos, lo cual puede ser insuficiente para una sala de coordinación.",
         "b": "Actualiza el panel cada 3 segundos, por lo que podría saturar el sistema.",
@@ -97,7 +97,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 10,
-      "question": "Se ha configurado la siguiente tarea en el cron del servidor para realizar backups:\n0 3 * * * /usr/local/bin/backup-diario.sh\n¿Qué RPO (Recovery Point Objective) aproximado se está asumiendo con esta configuración?",
+      "question": "Se ha configurado la siguiente tarea en el cron del servidor para realizar backups:\n\n```bash\n0 3 * * * /usr/local/bin/backup-diario.sh\n```\n\n¿Qué RPO (Recovery Point Objective) aproximado se está asumiendo con esta configuración?",
       "options": {
         "a": "Hasta 24 horas de pérdida máxima de datos.",
         "b": "Sin pérdida de datos (RPO = 0).",
@@ -117,7 +117,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 12,
-      "question": "Un usuario autenticado con rol de agente, perteneciente a la Comisaría 08, realiza la siguiente petición:\nGET /api/incidencias/4812\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c6IkpXVCJ9...\nLa incidencia solicitada (ID 4812) pertenece a la Comisaría 12. Sin embargo, la API responde correctamente con todos los datos detallados de la incidencia. ¿Qué vulnerabilidad de seguridad presenta este comportamiento?",
+      "question": "Un usuario autenticado con rol de agente, perteneciente a la Comisaría 08, realiza la siguiente petición:\n\n```http\nGET /api/incidencias/4812\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c6IkpXVCJ9...\n```\n\nLa incidencia solicitada (ID 4812) pertenece a la Comisaría 12. Sin embargo, la API responde correctamente con todos los datos detallados de la incidencia. ¿Qué vulnerabilidad de seguridad presenta este comportamiento?",
       "options": {
         "a": "Falta de validación de autorización a nivel de recurso u objeto (Object Level Authorization).",
         "b": "Ausencia de controles de rate limiting en los endpoints de consulta.",
@@ -157,7 +157,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 16,
-      "question": "Observa el siguiente pseudocódigo que busca un parte en una lista ordenada de partes policiales por número de expediente:\ninicio = 0; fin = N-1\nmientras inicio <= fin:\n medio = (inicio + fin) / 2\n si lista[medio] == objetivo: devolver medio\n si lista[medio] < objetivo: inicio = medio + 1\n sino: fin = medio - 1\ndevolver -1\n¿Qué algoritmo de búsqueda implementa este código?",
+      "question": "Observa el siguiente pseudocódigo que busca un parte en una lista ordenada de partes policiales por número de expediente:\n\n```text\ninicio = 0; fin = N-1\nmientras inicio <= fin:\n    medio = (inicio + fin) / 2\n    si lista[medio] == objetivo: devolver medio\n    si lista[medio] < objetivo: inicio = medio + 1\n    sino: fin = medio - 1\ndevolver -1\n```\n\n¿Qué algoritmo de búsqueda implementa este código?",
       "options": {
         "a": "Búsqueda lineal (secuencial)",
         "b": "Búsqueda binaria (dicotómica)",
@@ -167,7 +167,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 17,
-      "question": "Un desarrollador ejecuta por error el comando: git push origin main --force\nen el repositorio compartido, sobrescribiendo el historial remoto. Otros tres desarrolladores tienen cambios locales sin subir. ¿Cuál es el impacto de este comando y cómo se debe proceder para recuperar el historial?",
+      "question": "Un desarrollador ejecuta por error el comando:\n\n```bash\ngit push origin main --force\n```\n\nen el repositorio compartido, sobrescribiendo el historial remoto. Otros tres desarrolladores tienen cambios locales sin subir. ¿Cuál es el impacto de este comando y cómo se debe proceder para recuperar el historial?",
       "options": {
         "a": "El historial se pierde de forma definitiva y todos los desarrolladores deben volver a clonar el repositorio.",
         "b": "El historial remoto queda sobrescrito, pero los commits eliminados pueden recuperarse usando git reflog.",
@@ -187,7 +187,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 19,
-      "question": "Se detecta en los logs del servidor web del sistema de incidencias la siguiente entrada repetida:\nGET /buscar?expediente=1+OR+1=1-- HTTP/1.1. ¿Qué tipo de ataque indica esta entrada en el log?",
+      "question": "Se detecta en los logs del servidor web del sistema de incidencias la siguiente entrada repetida:\n\n```http\nGET /buscar?expediente=1+OR+1=1-- HTTP/1.1\n```\n\n¿Qué tipo de ataque indica esta entrada en el log?",
       "options": {
         "a": "Es un ataque de Cross-Site Scripting (XSS) reflejado.",
         "b": "Es un intento de inyección SQL (SQL injection).",
@@ -217,7 +217,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 22,
-      "question": "Al arrancar el servidor de aplicaciones del sistema de gestión de incidencias, el técnico observa que el proceso Java consume el 95% de la CPU durante varios minutos antes de estabilizarse. Revisando la configuración, comprueba que la JVM se ha iniciado con los parámetros -Xms64m -Xmx64m. ¿Cuál es la causa más probable de ese comportamiento y qué parámetro debería modificarse primero?",
+      "question": "Al arrancar el servidor de aplicaciones del sistema de gestión de incidencias, el técnico observa que el proceso Java consume el 95% de la CPU durante varios minutos antes de estabilizarse. Revisando la configuración, comprueba que la JVM se ha iniciado con los parámetros `-Xms64m -Xmx64m`. ¿Cuál es la causa más probable de ese comportamiento y qué parámetro debería modificarse primero?",
       "options": {
         "a": "El parámetro -Xmx64m limita el heap máximo a 64 MB, un valor insuficiente para una aplicación Spring Boot con alta carga. La JVM ejecuta el garbage collector de forma continua intentando liberar memoria, lo que dispara el consumo de CPU. Debería aumentarse -Xmx al menos a 512m.",
         "b": "El problema es que -Xms y -Xmx tienen el mismo valor, lo que impide al planificador de la JVM asignar más hilos al proceso. La solución es establecer -Xms a la mitad de -Xmx para dejar margen de crecimiento.",
@@ -237,7 +237,7 @@ const DATA_PRACTICA = {
     },
     {
       "id": 24,
-      "question": "La base de datos PostgreSQL del sistema de incidencias tiene activado el modo autocommit. Un técnico ejecuta por error el siguiente bloque:\nUPDATE incidencias\nSET estado='ARCHIVADA'\nWHERE id_incidencia > 0;\ny a continuación intenta revertirlo con ROLLBACK. ¿Cuál es el resultado?",
+      "question": "La base de datos PostgreSQL del sistema de incidencias tiene activado el modo autocommit. Un técnico ejecuta por error el siguiente bloque:\n\n```sql\nUPDATE incidencias\nSET estado='ARCHIVADA'\nWHERE id_incidencia > 0;\n```\n\ny a continuación intenta revertirlo con ROLLBACK. ¿Cuál es el resultado?",
       "options": {
         "a": "El ROLLBACK revierte correctamente la operación porque PostgreSQL mantiene el registro de transacciones (WAL) y siempre permite deshacer cambios, independientemente del modo autocommit.",
         "b": "El ROLLBACK no tiene efecto. Con autocommit activado, cada sentencia SQL se confirma automáticamente como una transacción independiente en cuanto se ejecuta. Para que ROLLBACK funcione, el técnico debería haber iniciado explícitamente una transacción con BEGIN antes del UPDATE.",
