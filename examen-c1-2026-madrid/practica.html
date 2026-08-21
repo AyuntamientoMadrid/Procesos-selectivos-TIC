@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte Práctica (60 Min) — Test TIC Ayuntamiento de Madrid</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script async src="../js/siteanalyze_6277594.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+    <!-- Header Navbar -->
+    <header class="banda sticky-top shadow-sm py-2">
+        <nav class="navbar navbar-expand navbar-dark p-0" aria-label="Navegación del examen">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="d-flex align-items-center">
+                    <a href="../index.html" class="d-flex align-items-center text-decoration-none" aria-label="Ir a la página principal de Procesos Selectivos TIC">
+                        <img src="../assets/img/firma.svg" alt="Ayuntamiento de Madrid" class="marca__logo me-3">
+                    </a>
+                    <a class="navbar-brand d-none d-sm-inline-block" href="index.html">
+                        Procesos selectivos TIC
+                    </a>
+                </div>
+
+                <!-- Timer & Controls -->
+                <div class="d-flex align-items-center gap-2 gap-sm-3">
+                    <span id="timer-badge" class="badge bg-primary fs-5 px-3 py-2 shadow-sm d-flex align-items-center gap-2" role="timer" aria-label="Tiempo restante">
+                        ⏱️ <span id="timer-display">60:00</span>
+                    </span>
+                    <button id="btn-pause" class="btn btn-sm btn-outline-light" aria-label="Pausar o reanudar el examen">⏸️ Pausar</button>
+                    <button id="btn-restart-header" class="btn btn-sm btn-outline-light" aria-label="Reiniciar el examen">🔄 Reiniciar</button>
+                    <button id="btn-submit" class="btn btn-sm btn-outline-light fw-medium" aria-label="Finalizar examen y ver resultados">🏁 Finalizar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container my-4" tabindex="-1">
+        <!-- Subtitle & Mode controls -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-2">
+            <div>
+                <h1 id="exam-title" class="h3 fw-bold titulo-corporativo mb-1">Parte Práctica</h1>
+                <p id="exam-subtitle" class="text-muted small mb-0"></p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <label for="mode-select" class="form-label mb-0 fw-bold small text-secondary">Modo:</label>
+                <select id="mode-select" class="form-select form-select-sm shadow-sm" style="width: auto;">
+                    <option value="exam">⏱️ Modo Examen (Simulación)</option>
+                    <option value="practice">💡 Modo Práctica (Respuestas inmediatas)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Scenario Container (Collapsible Practical Case Statement) -->
+        <div id="scenario-container">
+            <!-- Rendered by app.js -->
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body p-3">
+                <div class="d-flex justify-content-between small text-secondary mb-1">
+                    <span>Progreso de respuesta</span>
+                    <span id="progress-text">0 de 30 respondidas (0%)</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                    <div id="progress-bar" class="progress-bar bg-azul-madrid transition" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Question Box -->
+            <div class="col-lg-8">
+                <div id="question-card" class="card border-0 shadow-sm p-4 min-vh-50">
+                    <!-- Loaded dynamically by app.js -->
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button id="btn-prev" class="btn btn-outline-azul-madrid px-4 fw-bold">← Anterior</button>
+                    <button id="btn-clear" class="btn btn-outline-secondary btn-sm">🗑️ Borrar respuesta</button>
+                    <button id="btn-flag" class="btn btn-outline-warning btn-sm">🏳️ Marcar duda</button>
+                    <button id="btn-next" class="btn btn-azul-madrid px-4 fw-bold">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Question Navigation Grid Sidebar -->
+            <aside class="col-lg-4" aria-label="Navegador de preguntas">
+                <div class="card border-0 shadow-sm p-3 sticky-top" style="top: 80px;">
+                    <h2 class="h6 fw-bold titulo-corporativo border-bottom pb-2 mb-3">Navegador de Preguntas (1-30)</h2>
+                    <div id="question-grid" class="d-flex flex-wrap gap-1 max-vh-60 overflow-auto">
+                        <!-- Rendered by app.js -->
+                    </div>
+                    <div class="mt-3 pt-2 border-top small text-secondary">
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="badge bg-azul-madrid px-2">N</span> Respondida
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="badge bg-warning text-dark px-2">N</span> Marcada duda
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-outline-secondary border px-2">N</span> Sin responder
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Results Section (Hidden initially until submission) -->
+        <div id="results-section" class="card border-0 shadow-lg mt-5 d-none">
+            <div class="card-header bg-dark text-white p-4 text-center">
+                <h2 class="fw-bold mb-1">Resultados del Examen Práctico</h2>
+                <p class="text-white-50 mb-0">Corrección oficial procesada</p>
+            </div>
+            <div class="card-body p-4">
+                <div class="row text-center g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-light rounded border">
+                            <small class="text-muted text-uppercase fw-bold">Nota Final (0-10)</small>
+                            <h1 id="res-grade" class="display-5 fw-bold titulo-corporativo mb-0">0.00 / 10</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-light rounded border">
+                            <small class="text-muted text-uppercase fw-bold">Aciertos (+1)</small>
+                            <h2 id="res-correct" class="fw-bold text-success mb-0">0</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-light rounded border">
+                            <small class="text-muted text-uppercase fw-bold">Errores (-0.33)</small>
+                            <h2 id="res-incorrect" class="fw-bold text-danger mb-0">0</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-light rounded border">
+                            <small class="text-muted text-uppercase fw-bold">No Contestadas (0)</small>
+                            <h2 id="res-blank" class="fw-bold text-secondary mb-0">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info d-flex justify-content-between align-items-center">
+                    <span><strong>Puntuación Neta:</strong> <span id="res-net-points">0</span> puntos sobre 30.</span>
+                    <button id="btn-restart" class="btn btn-outline-azul-madrid fw-bold">🔄 Reiniciar</button>
+                </div>
+
+                <!-- Review Section -->
+                <h3 class="h4 fw-bold titulo-corporativo mt-4 mb-3">Revisión Detallada de Preguntas</h3>
+                <div class="btn-group mb-4" role="group" aria-label="Filtro de preguntas revisadas">
+                    <button type="button" class="btn btn-outline-azul-madrid btn-filter-result active" data-filter="all">Todas</button>
+                    <button type="button" class="btn btn-outline-success btn-filter-result" data-filter="correct">Correctas</button>
+                    <button type="button" class="btn btn-outline-danger btn-filter-result" data-filter="incorrect">Incorrectas</button>
+                    <button type="button" class="btn btn-outline-secondary btn-filter-result" data-filter="blank">No contestadas</button>
+                    <button type="button" class="btn btn-outline-warning btn-filter-result text-dark" data-filter="flagged">Dudas marcadas</button>
+                </div>
+
+                <div id="review-list-container">
+                    <!-- Rendered by app.js -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="js/data-practica.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        let quiz;
+        document.addEventListener('DOMContentLoaded', () => {
+            quiz = new QuizEngine(DATA_PRACTICA, 'practica');
+        });
+    </script>
+</body>
+</html>
