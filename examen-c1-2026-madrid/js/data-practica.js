@@ -7,301 +7,301 @@ const DATA_PRACTICA = {
   "questions": [
     {
       "id": 1,
-      "question": "De las siguientes, ¿cuál es la norma más actual cuyo objetivo es  normalizar el intercambio de asientos registrales entre distintas  oficinas de registro de documentos de entrada y salida?",
+      "question": "Durante el piloto, los puestos fijos de una comisaría acceden correctamente a la aplicación, pero los dispositivos móviles corporativos muestran el mensaje: \"No se puede establecer conexión segura con el servidor\". Otros servicios de Internet funcionan correctamente en esos móviles. ¿Cuál sería la comprobación inicial más adecuada?",
       "options": {
-        "a": "SICRES 3.0.",
-        "b": "SICRES 4.0.",
-        "c": "REGEG 3.0."
+        "a": "Comprobar la configuración de proxy y APN en los dispositivos móviles.",
+        "b": "Validar que el firewall permita el tráfico HTTPS desde la red móvil corporativa.",
+        "c": "Verificar si los móviles confían en el certificado del servidor o en su autoridad certificadora."
       },
       "correct": "c"
     },
     {
       "id": 2,
-      "question": "¿Cuál de las siguientes afirmaciones es cierta, respecto del  Registro Electrónico del Ayuntamiento?",
+      "question": "Se tiene el siguiente servicio EJB Stateless con transacciones gestionadas por el contenedor:\n\nJava@Stateless\npublic class IncidenciaService {\n @PersistenceContext\n private EntityManager em;\n public void registrarIncidencia(Incidencia incidencia) {\n em.persist(incidencia);\n Auditoria auditoria = new Auditoria();\n auditoria.setAccion(\"ALTA_INCIDENCIA\");\n auditoria.setIdIncidencia(incidencia.getId());\n em.persist(auditoria);\n }\n}\n\nAl ejecutar registrarIncidencia(), se produce una excepción de tipo RuntimeException durante la inserción de la entrada en la tabla de auditoría. ¿Qué comportamiento es esperable por defecto?",
       "options": {
-        "a": "Solamente está disponible en horario laboral.",
-        "b": "No permite adjuntar documentación adicional a la solicitud  general.",
-        "c": "Permite presentar escritos todos los días del año en cualquier  momento."
+        "a": "Se revierte toda la transacción.",
+        "b": "Se persiste la incidencia y solo se descarta la auditoría.",
+        "c": "El contenedor confirma los cambios realizados hasta el momento de la excepción."
       },
       "correct": "a"
     },
     {
       "id": 3,
-      "question": "Según la normativa actual, ¿qué se considera como \"fecha y hora  oficial\" de presentación de un documento en un registro  electrónico?",
+      "question": "El panel de la sala de coordinación debe mostrar incidencias no cerradas. Se revisa esta consulta:\n\nSELECT id_incidencia, tipo, prioridad, estado, fecha_alta\nFROM incidencias\nWHERE estado <> 'CERRADA'\n AND fecha_alta > CURRENT_DATE\nORDER BY prioridad DESC, fecha_alta ASC;\n\nAlgunas incidencias abiertas de días anteriores no aparecen en el panel. ¿Cuál es la causa más probable?",
       "options": {
-        "a": "La fecha y hora en que el documento fue cargado en el  sistema.",
-        "b": "La fecha y hora en que se genera el justificante de registro  electrónico.",
-        "c": "La fecha y hora del servidor del registro electrónico en el  momento de la presentación telemática.                    4"
+        "a": "La condición fecha_alta > CURRENT_DATE excluye incidencias abiertas anteriores al día actual.",
+        "b": "ORDER BY elimina automáticamente las incidencias antiguas.",
+        "c": "El operador <> sólo funciona con campos numéricos."
       },
       "correct": "a"
     },
     {
       "id": 4,
-      "question": "La digitalización de documentos es un proceso imprescindible que  consiste en convertir información analógica en digital, ¿cuál de los  siguientes no es un formato de archivo digital?",
+      "question": "Un agente registra una incidencia desde un dispositivo móvil en una zona con mala cobertura. Al recuperar la conexión, el servidor rechaza la sincronización porque un operador de sala ya había cerrado previamente esa misma incidencia desde la aplicación de escritorio. ¿Qué diseño es más adecuado para tratar este tipo de situaciones?",
       "options": {
-        "a": "PDF-A.",
-        "b": "TIFF.",
-        "c": "MPEJ-14."
+        "a": "Implementar una estrategia \"Last Write Wins\" (el último cambio sobrescribe al anterior).",
+        "b": "Implantar un mecanismo de detección y resolución de conflictos usando versiones, marcas temporales y reglas de negocio específicas.",
+        "c": "Usar bloqueo pesimista (pessimistic locking) para evitar modificaciones concurrentes en incidencias."
       },
       "correct": "b"
     },
     {
       "id": 5,
-      "question": "Y si un ciudadano quisiera adjuntar en su solicitud de registro un  vídeo, ¿cuál de los siguientes formatos no sería válido?",
+      "question": "Una comisaría dispone de la red 192.168.20.0/24 y necesita segmentarla según los siguientes requisitos:\nRed de Usuarios: 120 dispositivos\nRed de Servidores: 25 dispositivos\nRed de Impresoras: 12 dispositivos\nRed de Videovigilancia: 8 dispositivos\n¿Cuál de las siguientes propuestas de segmentación con VLSM es la más eficiente y correcta?",
       "options": {
-        "a": "AV1.",
-        "b": "H.264.",
-        "c": "WMVD2."
+        "a": "/25 (Usuarios) – /27 (Servidores) – /28 (Impresoras) – /28 (Videovigilancia)",
+        "b": "/24 (Usuarios) – /27 (Servidores) – /28 (Impresoras) – /28 (Videovigilancia)",
+        "c": "/26 (Usuarios) – /27 (Servidores) – /28 (Impresoras) – /29 (Videovigilancia)"
       },
       "correct": "a"
     },
     {
       "id": 6,
-      "question": "Uno de los sistemas operativos utilizados en la implantación física  de nuestra solución sería Linux, ¿cuál de las siguientes funciones  del kernel no le correspondería?",
+      "question": "La aplicación permite a los agentes adjuntar fotografías como evidencia en las incidencias. Se ha detectado que algunos usuarios intentan subir ficheros ejecutables (.exe) renombrándolos con extensión .jpg. ¿Qué control de seguridad es el más adecuado para mitigar este riesgo?",
       "options": {
-        "a": "Gestión de interfaces gráficas.",
-        "b": "Gestión de dispositivos.",
-        "c": "Gestión de llamadas al sistema."
+        "a": "Validar la extensión, el tipo MIME, la firma mágica del archivo, el tamaño máximo y realizar un análisis antimalware antes de almacenarlo.",
+        "b": "Permitir cualquier tipo de archivo siempre que el usuario esté autenticado y tenga permisos.",
+        "c": "Comprobar únicamente que la extensión sea .jpg o .png."
       },
       "correct": "a"
     },
     {
       "id": 7,
-      "question": "De las siguientes características, ¿Cuál diría que un sistema  Windows destaca sobre uno Linux?",
+      "question": "El panel operativo de la sala de coordinación debe mostrar nuevas incidencias sin refrescar manualmente. Actualmente realiza:\n\nsetInterval(() => {\n fetch(\"/api/incidencias/activas\")\n .then(r => r.json())\n .then(datos => pintarPanel(datos));\n}, 300000);\n\n¿Qué problema tiene esta configuración?",
       "options": {
-        "a": "Personalización.",
-        "b": "Usabilidad.",
-        "c": "Flexibilidad.                    5"
+        "a": "Actualiza el panel cada 5 minutos, lo cual puede ser insuficiente para una sala de coordinación.",
+        "b": "Actualiza el panel cada 3 segundos, por lo que podría saturar el sistema.",
+        "c": "La configuración tiene un error de sintaxis y generaría el mensaje: “Uncaught SyntaxError: missing) after argument list”."
       },
       "correct": "a"
     },
     {
       "id": 8,
-      "question": "De cara a almacenar los documentos incluidos en los asientos  registrales en el nuevo sistema de información, ¿Cuál de los  siguientes tipos de bases de datos sería el óptimo?",
+      "question": "El sistema de gestión de incidencias de la Policía Municipal trata datos de carácter policial, incluyendo información sensible relacionada con la seguridad ciudadana, la investigación de delitos y la operatividad policial. Según el ENS, ¿en qué categoría de seguridad debe clasificarse predominantemente este sistema?",
       "options": {
-        "a": "SGBD relacional.",
-        "b": "SGBD documental.",
-        "c": "SGBD orientado a objetos."
+        "a": "Categoría BÁSICA",
+        "b": "Categoría MEDIA",
+        "c": "Categoría ALTA"
       },
       "correct": "c"
     },
     {
       "id": 9,
-      "question": "¿Cuál de los siguientes es un estándar para la interconexión con  bases de datos?",
+      "question": "Los agentes de la Policía Municipal de Madrid utilizan terminales TETRA. Una de las características más relevantes de TETRA para los servicios de emergencias es su modo DMO. ¿Qué significa este modo y cuándo resulta especialmente útil?",
       "options": {
-        "a": "XQuery",
-        "b": "GraphQL.",
-        "c": "ODBC."
+        "a": "Digital Monitoring Operation: monitoriza el espectro de frecuencias para detectar interferencias",
+        "b": "Direct Mode Operation: permite comunicación directa entre terminales sin necesidad de infraestructura de red",
+        "c": "Data Management Operation: gestiona la transferencia de datos entre la red TETRA y el sistema de información"
       },
       "correct": "b"
     },
     {
       "id": 10,
-      "question": "Seguramente haya que llevar a cabo el diseño de la base de  datos, relacional, y para ello deberíamos llevar a cabo el proceso  de normalización. Respecto de este proceso, ¿qué nos dice la Sexta  Forma Normal (6FN)?",
+      "question": "Se ha configurado la siguiente tarea en el cron del servidor para realizar backups:\n0 3 * * * /usr/local/bin/backup-diario.sh\n¿Qué RPO (Recovery Point Objective) aproximado se está asumiendo con esta configuración?",
       "options": {
-        "a": "No existe 6FN.",
-        "b": "La 6FN se enfoca en descomponer las tablas en la forma más  granular posible, eliminando cualquier dependencia  temporal.",
-        "c": "La 6FN se centra en eliminar redundancias que pueden surgir  cuando se descomponen las relaciones en tablas más  pequeñas.                    6"
+        "a": "Hasta 24 horas de pérdida máxima de datos.",
+        "b": "Sin pérdida de datos (RPO = 0).",
+        "c": "Máximo de tres horas de pérdida de datos."
       },
       "correct": "a"
     },
     {
       "id": 11,
-      "question": "Entre los lenguajes para el desarrollo del frontal web del  Registro Electrónico del Ayuntamiento se encuentra HTML, CSS  y JavaScript. ¿Qué significan las siglas CSS?",
+      "question": "Durante una videoconferencia entre distintas comisarías, se observan pequeños cortes intermitentes en el audio. El sistema no retransmite los paquetes perdidos. ¿Qué principio técnico explica este comportamiento?",
       "options": {
-        "a": "Cascading Sheets Style.",
-        "b": "Cascading Style Sheets.",
-        "c": "Cascading Sheet Style."
+        "a": "El uso de TCP como protocolo de transporte es obligatorio en este tipo de aplicaciones.",
+        "b": "Los protocolos de videoconferencia siempre desactivan la corrección de errores para ahorrar ancho de banda.",
+        "c": "En comunicaciones en tiempo real se prioriza la baja latencia sobre la fiabilidad total de la entrega."
       },
       "correct": "c"
     },
     {
       "id": 12,
-      "question": "Para una carga más rápida de la página web se puede hacer  uso de la técnica de renderización del HTML en el servidor y  enviarlo al cliente. ¿Cómo se denomina esta técnica?",
+      "question": "Un usuario autenticado con rol de agente, perteneciente a la Comisaría 08, realiza la siguiente petición:\nGET /api/incidencias/4812\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c6IkpXVCJ9...\nLa incidencia solicitada (ID 4812) pertenece a la Comisaría 12. Sin embargo, la API responde correctamente con todos los datos detallados de la incidencia. ¿Qué vulnerabilidad de seguridad presenta este comportamiento?",
       "options": {
-        "a": "Server Side Rendering (SSR).",
-        "b": "Client Side Rendering (CSR).",
-        "c": "Ninguna de las anteriores, puesto que las páginas web se  renderizan en los clientes web."
+        "a": "Falta de validación de autorización a nivel de recurso u objeto (Object Level Authorization).",
+        "b": "Ausencia de controles de rate limiting en los endpoints de consulta.",
+        "c": "Uso inadecuado del método HTTP GET para recuperar información sensible."
       },
       "correct": "a"
     },
     {
       "id": 13,
-      "question": "Para el desarrollo del sistema se puede hacer uso de  arquitectura Java EE, con lenguaje de programación Java. ¿Cuál  de las siguientes es una característica del lenguaje?",
+      "question": "El equipo TIC del Ayuntamiento utiliza una herramienta de gestión de proyectos basada en metodología ágil, con tableros visuales que muestran tareas en columnas como 'Pendiente', 'En progreso' y 'Completado'. ¿Qué metodología y herramienta de visualización describe esta práctica?",
       "options": {
-        "a": "Operadores sobrecargables.",
-        "b": "Soporte para programación genérica.",
-        "c": "Punteros explícitos.                    7"
+        "a": "Metodología en cascada (Waterfall) con diagrama de Gantt",
+        "b": "Metodología Kanban con tablero Kanban",
+        "c": "Metodología PRINCE2 con registro de riesgos"
       },
       "correct": "a"
     },
     {
       "id": 14,
-      "question": "El desarrollo de aplicaciones móviles se puede llevar a cabo  con frameworks de desarrollo, ¿cuál de los siguientes es un  framework de desarrollo de aplicaciones híbridas?",
+      "question": "Cuando un agente envía una incidencia desde su dispositivo móvil al servidor central, los datos se encapsulan en distintas capas antes de transmitirse. ¿En qué capa del modelo OSI se realiza el enrutamiento de paquetes entre redes diferentes?",
       "options": {
-        "a": "jQuery.",
-        "b": "SwiftUI.",
-        "c": "Native Script."
+        "a": "Capa 2 — Enlace de datos",
+        "b": "Capa 3 — Red",
+        "c": "Capa 4 — Transporte"
       },
       "correct": "b"
     },
     {
       "id": 15,
-      "question": "¿Qué norma que regula la accesibilidad de los sitios web y  aplicaciones móviles del sector público en España se deberá tener  en cuenta para el desarrollo del nuevo sistema?",
+      "question": "La sala de coordinación de la Policía Municipal necesita garantizar comunicaciones de voz entre agentes incluso si la red de datos falla. ¿Qué sistema de comunicaciones está diseñado específicamente para cubrir esta necesidad en servicios de emergencias y seguridad pública?",
       "options": {
-        "a": "Real Decreto 1112/2018.",
-        "b": "Real Decreto 193/2023.",
-        "c": "Real Decreto 28/2020."
+        "a": "Red WiFi 802.11ac",
+        "b": "Red 4G/LTE comercial",
+        "c": "Sistema TETRA"
       },
       "correct": "c"
     },
     {
       "id": 16,
-      "question": "Tanto las normas de accesibilidad nacionales, en España,  como las europeas están basadas en las WCAG (Web Content  Accessibility Guidelines). ¿Cuál es la última versión oficial  publicada y a aplicar en nuestro sistema de información?",
+      "question": "Observa el siguiente pseudocódigo que busca un parte en una lista ordenada de partes policiales por número de expediente:\ninicio = 0; fin = N-1\nmientras inicio <= fin:\n medio = (inicio + fin) / 2\n si lista[medio] == objetivo: devolver medio\n si lista[medio] < objetivo: inicio = medio + 1\n sino: fin = medio - 1\ndevolver -1\n¿Qué algoritmo de búsqueda implementa este código?",
       "options": {
-        "a": "WCAG 2.1 2018 (actualizada en 2025) Mejora de  accesibilidad móvil y para discapacidades cognitivas leves.",
-        "b": "WCAG 2.2 2023 Nuevos criterios para navegación, foco  visible, y controles accesibles.",
-        "c": "WCAG 3.0 (en borrador) En desarrollo Enfoque más  flexible y holístico, pero aún no es oficial.                    8"
+        "a": "Búsqueda lineal (secuencial)",
+        "b": "Búsqueda binaria (dicotómica)",
+        "c": "Búsqueda en profundidad (DFS)"
       },
       "correct": "b"
     },
     {
       "id": 17,
-      "question": "¿Qué se entiende por “hypercall” o “hiperllamada” en un  entorno virtualizado?",
+      "question": "Un desarrollador ejecuta por error el comando: git push origin main --force\nen el repositorio compartido, sobrescribiendo el historial remoto. Otros tres desarrolladores tienen cambios locales sin subir. ¿Cuál es el impacto de este comando y cómo se debe proceder para recuperar el historial?",
       "options": {
-        "a": "Es un mecanismo que permite a una máquina virtual  comunicarse directamente con el hipervisor.",
-        "b": "Es una petición que hace una aplicación al Sistema  Operativo.",
-        "c": "Es un acceso, de una máquina virtual, al hardware físico."
+        "a": "El historial se pierde de forma definitiva y todos los desarrolladores deben volver a clonar el repositorio.",
+        "b": "El historial remoto queda sobrescrito, pero los commits eliminados pueden recuperarse usando git reflog.",
+        "c": "El comando no afecta a los repositorios locales. Los desarrolladores recibirán una notificación y podrán sincronizar automáticamente."
       },
       "correct": "b"
     },
     {
       "id": 18,
-      "question": "Respecto de la virtualización de un sistema, ¿cuál de las  siguientes entradas es falsa?",
+      "question": "Se ha detectado que un equipo de la red interna está enviando peticiones DNS a un dominio externo desconocido cada 60 segundos. Los nombres consultados contienen cadenas aleatorias largas (ej: a3f92bc1d72e.maldominio.com). ¿Qué técnica de ataque representa este comportamiento?",
       "options": {
-        "a": "Un hipervisor de tipo 1 se denomina a veces hipervisor  nativo o bare-metal o hosted.",
-        "b": "Los hipervisores bare-metal se instalan y ejecutan  directamente en el hardware físico de un ordenador.",
-        "c": "Los hipervisores de tipo 2, hipervisor alojado, se ejecutan  como aplicaciones a través del sistema operativo de la  máquina física."
+        "a": "Amplificación DNS",
+        "b": "DNS Tunneling",
+        "c": "DNS Cache Poisoning"
       },
       "correct": "b"
     },
     {
       "id": 19,
-      "question": "Además de por cable, los usuarios del Ayuntamiento podrán  acceder a la red interna vía Wifi, haciendo uso del estándar IEEE  802.11, ¿cuál de los siguientes es un sistema de expansión del  espectro?",
+      "question": "Se detecta en los logs del servidor web del sistema de incidencias la siguiente entrada repetida:\nGET /buscar?expediente=1+OR+1=1-- HTTP/1.1. ¿Qué tipo de ataque indica esta entrada en el log?",
       "options": {
-        "a": "DMSS Division Multiplexing Spread Spectrum.",
-        "b": "DSSS Direct Sequence Spread Spectrum.",
-        "c": "OFSS Ortogonal Frequency Spread Spectrum.                  9"
+        "a": "Es un ataque de Cross-Site Scripting (XSS) reflejado.",
+        "b": "Es un intento de inyección SQL (SQL injection).",
+        "c": "Es un ataque de fuerza bruta contra el campo de búsqueda."
       },
       "correct": "b"
     },
     {
       "id": 20,
-      "question": "Seguramente nuestra red cableada haga uso de cable de par  trenzado. ¿Cuál de los siguientes tipos puede ser utilizado?",
+      "question": "El CAU (Centro de Atención a Usuarios) recibe una incidencia: el ordenador de un agente en la Comisaría Integral de Distrito de Salamanca muestra una pantalla azul (BSOD) de forma recurrente al abrir el sistema de incidencias. El técnico conecta de forma remota mediante RDP pero el equipo vuelve a mostrar BSOD durante la sesión remota. ¿Cuál es el siguiente paso técnico correcto?",
       "options": {
-        "a": "FTP Foiled Twisted Pair.",
-        "b": "SBTP Screened and Brided Twisted Pair.",
-        "c": "BTP Brided Twisted Pair."
+        "a": "Cerrar la sesión RDP y llamar por teléfono al agente para que lea en voz alta el código de error del BSOD, ya que no es posible capturar información de un BSOD mediante herramientas remotas.",
+        "b": "Antes de que vuelva a producirse el BSOD, revisar remotamente el Visor de eventos de Windows (Event Viewer) en los registros de Sistema y Aplicación para identificar errores críticos previos al fallo, así como analizar el fichero de volcado de memoria.",
+        "c": "Reinstalar el sistema operativo de forma remota mediante WDS (Windows Deployment Services)."
       },
       "correct": "b"
     },
     {
       "id": 21,
-      "question": "La seguridad de la red IEEE 802.11 recaerá, probablemente,  en el protocolo de seguridad WPA 2 (Wi-Fi Protected Access 2) o  WPA3 (Wi-Fi Protected Access 3). ¿Qué algoritmo de cifrado, de  los siguientes, es fundamental para implementar WPA2?",
+      "question": "En el portal web del sistema de incidencias, un campo de búsqueda usa únicamente el atributo placeholder como referencia textual, sin etiqueta <label> asociada. ¿Qué problema de accesibilidad presenta este diseño?",
       "options": {
-        "a": "TKIP (Temporal Key Integrity Protocol).",
-        "b": "AES (Advanced Encryption Estándar).",
-        "c": "WEP (Wired Equivalent Privacy)."
+        "a": "El placeholder desaparece al escribir, dificultando la experiencia de usuarios con problemas cognitivos, y los lectores de pantalla no siempre lo anuncian como etiqueta del campo. Incumple los criterios 1.3.1 y 3.3.2 de las WCAG 2.1.",
+        "b": "No existe problema relevante: los principales lectores de pantalla como NVDA o JAWS leen el placeholder al enfocar el campo, por lo que es suficiente como referencia textual.",
+        "c": "El problema es de contraste: el placeholder suele tener color gris claro sobre fondo blanco, incumpliendo el criterio 1.4.3 (Contraste mínimo) de las WCAG 2.1."
       },
       "correct": "a"
     },
     {
       "id": 22,
-      "question": "¿Cuál de los siguientes protocolos no es un protocolo de  administración de red?",
+      "question": "Al arrancar el servidor de aplicaciones del sistema de gestión de incidencias, el técnico observa que el proceso Java consume el 95% de la CPU durante varios minutos antes de estabilizarse. Revisando la configuración, comprueba que la JVM se ha iniciado con los parámetros -Xms64m -Xmx64m. ¿Cuál es la causa más probable de ese comportamiento y qué parámetro debería modificarse primero?",
       "options": {
-        "a": "DNS Domain Name System.",
-        "b": "ICMP Internet Control Message Protocol.",
-        "c": "RMON Remote Monitoring."
+        "a": "El parámetro -Xmx64m limita el heap máximo a 64 MB, un valor insuficiente para una aplicación Spring Boot con alta carga. La JVM ejecuta el garbage collector de forma continua intentando liberar memoria, lo que dispara el consumo de CPU. Debería aumentarse -Xmx al menos a 512m.",
+        "b": "El problema es que -Xms y -Xmx tienen el mismo valor, lo que impide al planificador de la JVM asignar más hilos al proceso. La solución es establecer -Xms a la mitad de -Xmx para dejar margen de crecimiento.",
+        "c": "El parámetro -Xms64m fuerza a la JVM a reservar 64 MB de CPU al arranque. Para reducir el consumo inicial se debe eliminar -Xms del comando de arranque y dejar que la JVM gestione la CPU de forma dinámica."
       },
       "correct": "a"
     },
     {
       "id": 23,
-      "question": "La red del ayuntamiento hace uso de VLAN, red lógica que  agrupa dispositivos dentro de una red física para su segmentación.  ¿Qué tipos de VLAN pueden ser implantadas?",
+      "question": "El sistema de incidencias debe asignar cada aviso a la patrulla disponible más cercana, recalculando la distancia según la posición GPS de los vehículos y manteniendo una consulta eficiente cuando hay muchas unidades desplegadas. ¿Qué estructura o enfoque sería más adecuado?",
       "options": {
-        "a": "VLAN basadas en puertos y/o VLAN marcadas.",
-        "b": "VLAN basadas en puertos y/o VLAN etiquetadas.",
-        "c": "VLAN basadas en puertos y/o VLAN gestionadas.                  10"
+        "a": "Una pila LIFO, de forma que se asigne siempre la última patrulla que haya comunicado disponibilidad, ya que la operación de extracción es O(1).",
+        "b": "Una estructura espacial como un árbol k-d o índice geoespacial, que permite organizar puntos por coordenadas y realizar búsquedas de vecinos más cercanos de forma más eficiente que recorrer todas las patrullas.",
+        "c": "Una lista simple no ordenada, recorriéndola completa en cada aviso para calcular la distancia a todas las patrullas y seleccionar la menor, con coste O(n) por consulta."
       },
       "correct": "b"
     },
     {
       "id": 24,
-      "question": "Para la monitorización del nuevo sistema de información se  necesita de herramientas. ¿Cuál de las siguientes no lo es?",
+      "question": "La base de datos PostgreSQL del sistema de incidencias tiene activado el modo autocommit. Un técnico ejecuta por error el siguiente bloque:\nUPDATE incidencias\nSET estado='ARCHIVADA'\nWHERE id_incidencia > 0;\ny a continuación intenta revertirlo con ROLLBACK. ¿Cuál es el resultado?",
       "options": {
-        "a": "MonSis.",
-        "b": "SolarWinds.",
-        "c": "Nagios."
+        "a": "El ROLLBACK revierte correctamente la operación porque PostgreSQL mantiene el registro de transacciones (WAL) y siempre permite deshacer cambios, independientemente del modo autocommit.",
+        "b": "El ROLLBACK no tiene efecto. Con autocommit activado, cada sentencia SQL se confirma automáticamente como una transacción independiente en cuanto se ejecuta. Para que ROLLBACK funcione, el técnico debería haber iniciado explícitamente una transacción con BEGIN antes del UPDATE.",
+        "c": "El ROLLBACK revierte el UPDATE solo si se ejecuta en los 30 segundos siguientes, que es el tiempo de retención por defecto del buffer de transacciones de PostgreSQL antes de hacer flush al disco."
       },
       "correct": "b"
     },
     {
       "id": 25,
-      "question": "El nuevo sistema de Registro Electrónico podría ser  desplegado en la nube.  ¿Cuál de las siguientes características  aplicaría a un sistema en la nube?",
+      "question": "La Jefatura de la Policía Municipal necesita un formulario web para que los agentes reporten incidencias menores sin pasar por el sistema principal. El técnico TIC dispone de poco tiempo y usa una plataforma low-code del catálogo de herramientas municipales para construirlo. ¿Cuál es el riesgo técnico más relevante que debe valorar antes de desplegarlo en producción?",
       "options": {
-        "a": "Privacidad total garantizada.",
-        "b": "Dependencia del proveedor.",
-        "c": "Latencia mínima garantizada."
+        "a": "Las plataformas low-code generan código HTML estático por lo que el formulario no podría enviar los datos al sistema de incidencias bajo ningún concepto.",
+        "b": "La plataforma low-code puede introducir dependencia de proveedor (vendor lock-in). Además, debe verificarse que cumple con el ENS y el RGPD antes de procesar datos policiales.",
+        "c": "Las plataformas low-code solo admiten conexiones con APIs REST modernas. Si el sistema de incidencias expone servicios SOAP o acceso directo a base de datos, la integración sería técnicamente inviable y el formulario no podría trasladar los datos al sistema principal."
       },
       "correct": "b"
     },
     {
       "id": 26,
-      "question": "Respecto de este servicio en la nube, ¿Qué opción sería  posible?",
+      "question": "Al revisar el diseño de la tabla de incidencias, el técnico detecta que el campo nombre_agente se repite en cada fila junto al id_agente, causando redundancia. ¿En qué forma normal se resuelve esta anomalía?",
       "options": {
-        "a": "Servicio de nube híbrida, en la que se pueden combinar  nubes públicas y privadas.",
-        "b": "Servicio de nube privada, ofrecida al público en general.",
-        "c": "Servicio de nube pública, restringida a algunos usuarios.                          11"
+        "a": "Primera Forma Normal (1FN)",
+        "b": "Segunda Forma Normal (2FN)",
+        "c": "Tercera Forma Normal (3FN)"
       },
       "correct": "c"
     },
     {
       "id": 27,
-      "question": "Un sistema de control de tráfico de red evita congestiones y  garantiza una comunicación eficiente. ¿Cuál de los siguientes no  es un sistema de control de tráfico de red a utilizar en nuestro  sistema?",
+      "question": "El analista de datos diseña el modelo conceptual del sistema y define la siguiente relación: un AGENTE puede gestionar muchas INCIDENCIAS, pero cada INCIDENCIA es gestionada por exactamente un AGENTE. Adicionalmente, una INCIDENCIA puede involucrar a varios VEHÍCULOS, y un VEHÍCULO puede aparecer en varias INCIDENCIAS. ¿Cómo se representan correctamente estas cardinalidades en el modelo Entidad-Relación?",
       "options": {
-        "a": "QoS (Calidad de Servicio).",
-        "b": "Balanceador de carga.",
-        "c": "Cableado, conectores y racks."
+        "a": "AGENTE — (1, N) — INCIDENCIA con relación 'gestiona'; INCIDENCIA — (N, M) — VEHÍCULO con relación 'involucra'.",
+        "b": "AGENTE — (1, 1) — INCIDENCIA con relación 'gestiona'; INCIDENCIA — (1, N) — VEHÍCULO con relación 'involucra'.",
+        "c": "Todas las relaciones son (N,M) por defecto en el modelo E/R conceptual. Las cardinalidades exactas se definen únicamente en la fase de diseño lógico al transformar el modelo al relacional."
       },
       "correct": "a"
     },
     {
       "id": 28,
-      "question": "En el ENS (Esquema Nacional de Seguridad), ¿qué  dimensiones de seguridad debe garantizar nuestro sistema de  información?",
+      "question": "El servidor Linux del sistema de incidencias muestra un uso de CPU al 100% de forma sostenida. El técnico ejecuta el comando 'top' y detecta que un proceso acumula el 98% de CPU con PID 4821. Necesita terminar el proceso de forma ordenada para que libere recursos antes de morir. ¿Qué comando utiliza?",
       "options": {
-        "a": "Autenticación, Confidencialidad, Integridad,  Responsabilidad y Disponibilidad.",
-        "b": "Autenticación, Confidencialidad, Integridad,  Responsabilidad y Trazabilidad.",
-        "c": "Autenticación, Confidencialidad, Integridad, Disponibilidad  y Trazabilidad.                          12"
+        "a": "kill -1 4821",
+        "b": "kill -9 4821",
+        "c": "kill -15 4821"
       },
       "correct": "c"
     },
     {
       "id": 29,
-      "question": "Para la autenticación de una persona en nuestro sistema de  información se puede hacer uso del DNI electrónico. ¿Qué  afirmación de las siguientes es falsa?",
+      "question": "En el código del sistema, la clase Atestado hereda de la clase Documento, que a su vez define el método firmar(). Al llamar a miAtestado.firmar(), se ejecuta la versión sobreescrita en Atestado. ¿Qué concepto de la POO describe este comportamiento?",
       "options": {
-        "a": "Contiene certificados cualificados de clave pública y privada  RSA.",
-        "b": "Se han asignado las funciones de certificación a entidades  ajenas a la Dirección General de la Policía.",
-        "c": "Permite las operaciones de autenticación, cifrado y firma."
+        "a": "Encapsulación",
+        "b": "Polimorfismo",
+        "c": "Abstracción"
       },
       "correct": "b"
     },
     {
       "id": 30,
-      "question": "Cuál de las siguientes capas del modelo TCP/IP es  responsable de proporcionar una comunicación fiable y orientada  a la conexión entre aplicaciones?",
+      "question": "El Ayuntamiento implanta una aplicación cloud para la gestión de partes de incidencias. La aplicación debe almacenar fotografías, vídeos y documentos adjuntos asociados a cada parte, con posibilidad de acceder a ellos desde distintas instancias de la aplicación y sin depender del disco local de un servidor concreto. ¿Cuál de los siguientes servicios de almacenamiento cloud sería más adecuado?",
       "options": {
-        "a": "Capa de Enlace de Datos.",
-        "b": "Capa de Red (Internet).",
-        "c": "Capa de Transporte."
+        "a": "Amazon EBS, Azure Managed Disks o Google Persistent Disk",
+        "b": "Amazon S3, Azure Blob Storage o Google Cloud Storage",
+        "c": "Amazon ElastiCache, Azure Cache for Redis o Google Cloud Memorystore."
       },
       "correct": "b"
     }
