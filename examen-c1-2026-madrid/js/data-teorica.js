@@ -302,7 +302,7 @@ const DATA_TEORICA = {
         "b": "Drop.",
         "c": "Merge."
       },
-      "correct": "a"
+      "correct": "b"
     },
     {
       "id": 31,
@@ -452,7 +452,7 @@ const DATA_TEORICA = {
         "b": "Compilar aplicaciones Java.",
         "c": "Ejecutar componentes web como Servlets y JSP."
       },
-      "correct": "b"
+      "correct": "c"
     },
     {
       "id": 46,
@@ -842,7 +842,7 @@ const DATA_TEORICA = {
         "b": "Gestión de la seguridad basada en los riesgos, Vigilancia continua, Prevención, detección y respuesta y Seguridad como proceso integral.",
         "c": "Gestión de la seguridad basada en las amenazas, Vigilancia continua, Prevención, detección, respuesta y conservación y Seguridad como proceso integral."
       },
-      "correct": "a"
+      "correct": "b"
     },
     {
       "id": 85,

@@ -133,7 +133,7 @@ const DATA_PRACTICA = {
         "b": "Metodología Kanban con tablero Kanban",
         "c": "Metodología PRINCE2 con registro de riesgos"
       },
-      "correct": "a"
+      "correct": "b"
     },
     {
       "id": 14,
