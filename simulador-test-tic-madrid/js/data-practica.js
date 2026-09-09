@@ -1,9 +1,16 @@
+window.EXAM_DATA = window.EXAM_DATA || {};
 const DATA_PRACTICA = {
-  "title": "Parte Práctica — Técnico/a Auxiliar T.I.C. Ayuntamiento de Madrid",
+  "id": "c1-2025-practica",
+  "grupo": "C1",
+  "convocatoria": "2025",
+  "tipo": "practica",
+  "title": "Parte Práctica — Técnico/a Auxiliar T.I.C. (Conv. 2025)",
   "date": "27 de junio de 2026",
   "timeMinutes": 60,
   "scenario": "Supuesto práctico: Sistema de Gestión de Incidencias de la Policía Municipal\n\nEres técnico/a auxiliar TIC del Área de Gobierno de Vicealcaldía, Portavoz, Seguridad y Emergencias del Ayuntamiento de Madrid. La Policía Municipal va a implantar un nuevo sistema integral de gestión de incidencias operativas para coordinar comisarías y unidades desplegadas en vía pública.\n\nEl sistema permitirá registrar y consultar avisos, partes de intervención, e incidencias desde puestos corporativos y dispositivos móviles autorizados. La solución deberá integrarse con aplicaciones web internas, bases de datos corporativas, red local de dependencias policiales, comunicaciones móviles y red TETRA para comunicaciones críticas de voz y coordinación operativa. También deberá garantizar seguridad, disponibilidad, trazabilidad, copias de seguridad y cumplimiento de los principios del ENS y del ENI.",
   "totalQuestions": 30,
+  "reserveQuestions": 0,
+  "stipulatedQuestions": 30,
   "questions": [
     {
       "id": 1,
@@ -307,3 +314,10 @@ const DATA_PRACTICA = {
     }
   ]
 };
+
+window.EXAM_DATA["c1-2025-practica"] = DATA_PRACTICA;
+window.EXAM_DATA["c1-2026-practica"] = DATA_PRACTICA;
+if (typeof window !== 'undefined') {
+  window.DATA_C1_2025_PRACTICA = DATA_PRACTICA;
+  window.DATA_C1_2026_PRACTICA = DATA_PRACTICA;
+}

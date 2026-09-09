@@ -1,8 +1,15 @@
+window.EXAM_DATA = window.EXAM_DATA || {};
 const DATA_TEORICA = {
-  "title": "Parte Teórica — Técnico/a Auxiliar T.I.C. Ayuntamiento de Madrid",
+  "id": "c1-2025-teorica",
+  "grupo": "C1",
+  "convocatoria": "2025",
+  "tipo": "teorica",
+  "title": "Parte Teórica — Técnico/a Auxiliar T.I.C. (Conv. 2025)",
   "date": "27 de junio de 2026",
   "timeMinutes": 90,
   "totalQuestions": 90,
+  "reserveQuestions": 0,
+  "stipulatedQuestions": 90,
   "questions": [
     {
       "id": 1,
@@ -906,3 +913,10 @@ const DATA_TEORICA = {
     }
   ]
 };
+
+window.EXAM_DATA["c1-2025-teorica"] = DATA_TEORICA;
+window.EXAM_DATA["c1-2026-teorica"] = DATA_TEORICA;
+if (typeof window !== 'undefined') {
+  window.DATA_C1_2025_TEORICA = DATA_TEORICA;
+  window.DATA_C1_2026_TEORICA = DATA_TEORICA;
+}

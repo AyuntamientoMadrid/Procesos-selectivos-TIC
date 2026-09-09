@@ -1,0 +1,883 @@
+:root {
+    /* Paleta Institucional Ayuntamiento de Madrid (www.madrid.es / identidad.madrid.es) */
+    --azul-madrid: #003399;           /* Pantone Reflex Blue - Color institucional principal */
+    --azul-madrid-oscuro: #002266;    /* Azul Marino Profundo (A1 / Hover primario) */
+    --azul-madrid-medio: #0055b8;     /* Azul Medio Corporativo */
+    --azul-madrid-acento: #0077c8;    /* Azul Acento / Selección */
+    --azul-noche: #134074;            /* Azul Noche Institucional (A2) */
+    --gris-madrid: #5A6770;           /* Pantone Cool Gray 9 - Gris institucional */
+    --gris-madrid-oscuro: #374151;    /* Gris Plomo Oscuro */
+    --gris-madrid-claro: #e9eff5;     /* Gris Perla / Fondos suaves */
+    --verde-madrid: #0B6E4F;          /* Pantone 341 C - Verde institucional (Aciertos / Práctica) */
+    --verde-madrid-oscuro: #085039;   /* Verde Oscuro Hover */
+    --bg-light: #f4f7f9;              /* Fondo de página institucional */
+
+    /* Colores Suaves y Accesibles para Corrección del Examen */
+    /* Verde Suave (Correctas) */
+    --verde-suave-bg: #eaf6ee;
+    --verde-suave-border: #7ec499;
+    --verde-suave-text: #145932;
+    --verde-suave-hover: #d2edd9;
+    --verde-suave-solid: #338a5e;
+
+    /* Rojo Suave (Erróneas / Fallos) */
+    --rojo-suave-bg: #fdeeee;
+    --rojo-suave-border: #f59e9e;
+    --rojo-suave-text: #8c1d1d;
+    --rojo-suave-hover: #fadcdc;
+    --rojo-suave-solid: #c94f4f;
+
+    /* Púrpura Suave (Anuladas) */
+    --purpura-suave-bg: #f5f0fa;
+    --purpura-suave-border: #c8a7e2;
+    --purpura-suave-text: #59257d;
+    --purpura-suave-hover: #ebdff7;
+    --purpura-suave-solid: #7d4d9b;
+
+    /* Gris Suave (No contestadas) */
+    --gris-suave-bg: #f1f5f9;
+    --gris-suave-border: #94a3b8;
+    --gris-suave-text: #334155;
+    --gris-suave-hover: #e2e8f0;
+}
+
+body {
+    font-family: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: #212529;
+}
+
+/* Corporate Colors & Typography */
+.titulo-corporativo,
+.text-azul-madrid {
+    color: var(--azul-madrid) !important;
+}
+
+.text-verde-madrid {
+    color: var(--verde-madrid) !important;
+}
+
+.text-gris-madrid {
+    color: var(--gris-madrid) !important;
+}
+
+.bg-azul-madrid {
+    background-color: var(--azul-madrid) !important;
+}
+
+.bg-azul-madrid-oscuro {
+    background-color: var(--azul-madrid-oscuro) !important;
+}
+
+.bg-azul-noche {
+    background-color: var(--azul-noche) !important;
+}
+
+.bg-verde-madrid {
+    background-color: var(--verde-madrid) !important;
+}
+
+.bg-gris-madrid {
+    background-color: var(--gris-madrid) !important;
+}
+
+/* Buttons */
+.btn-azul-madrid {
+    background-color: var(--azul-madrid) !important;
+    color: #ffffff !important;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-azul-madrid:hover,
+.btn-azul-madrid:focus {
+    background-color: var(--azul-madrid-oscuro) !important;
+    color: #ffffff !important;
+}
+
+.btn-azul-madrid:focus-visible {
+    outline: 3px solid var(--azul-madrid) !important;
+    outline-offset: 2px;
+}
+
+.btn-verde-madrid {
+    background-color: var(--verde-madrid) !important;
+    color: #ffffff !important;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-verde-madrid:hover,
+.btn-verde-madrid:focus {
+    background-color: var(--verde-madrid-oscuro) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-azul-madrid {
+    color: var(--azul-madrid) !important;
+    border: 2px solid var(--azul-madrid) !important;
+    background-color: transparent !important;
+    font-weight: 600;
+}
+
+.btn-outline-azul-madrid:hover,
+.btn-outline-azul-madrid:focus,
+.btn-outline-azul-madrid.active {
+    background-color: var(--azul-madrid) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-verde-madrid {
+    color: var(--verde-madrid) !important;
+    border: 2px solid var(--verde-madrid) !important;
+    background-color: transparent !important;
+    font-weight: 600;
+}
+
+.btn-outline-verde-madrid:hover,
+.btn-outline-verde-madrid:focus,
+.btn-outline-verde-madrid.active {
+    background-color: var(--verde-madrid) !important;
+    color: #ffffff !important;
+}
+
+.btn-gris-madrid {
+    background-color: var(--gris-madrid) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--gris-madrid-oscuro) !important;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-gris-madrid:hover,
+.btn-gris-madrid:focus {
+    background-color: var(--gris-madrid-oscuro) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-gris-madrid {
+    color: var(--gris-madrid) !important;
+    border: 2px solid var(--gris-madrid) !important;
+    background-color: transparent !important;
+    font-weight: 600;
+}
+
+.btn-outline-gris-madrid:hover,
+.btn-outline-gris-madrid:focus,
+.btn-outline-gris-madrid.active {
+    background-color: var(--gris-madrid) !important;
+    color: #ffffff !important;
+}
+
+/* Header Navbar */
+.banda {
+    background-color: var(--azul-madrid);
+    color: white;
+    padding: 1rem;
+}
+
+.marca__logo {
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+}
+
+.navbar-madrid {
+    background-color: var(--azul-madrid);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Accessibility: Focus visible styling */
+:focus-visible {
+    outline: 3px solid var(--azul-madrid);
+    outline-offset: 2px;
+}
+
+.banda :focus-visible {
+    outline: 3px solid #ffffff !important;
+    outline-offset: 2px;
+}
+
+/* Skip to main content link for keyboard / screen reader users */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 1055;
+    background: #ffffff;
+    color: var(--azul-madrid);
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--azul-madrid);
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* Question Option Cards */
+.option-item {
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #dee2e6 !important;
+}
+
+.option-item:hover {
+    border-color: var(--azul-madrid-acento) !important;
+    background-color: #f0f6ff;
+}
+
+.option-item:focus-within {
+    border-color: var(--azul-madrid) !important;
+    background-color: #f0f6ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 51, 153, 0.2);
+}
+
+.option-item.selected {
+    border-color: var(--azul-madrid) !important;
+    background-color: #e8f1fb;
+    box-shadow: 0 0 0 0.25rem rgba(0, 51, 153, 0.15);
+}
+
+.option-item.correct-option {
+    border-color: var(--verde-suave-border) !important;
+    background-color: var(--verde-suave-bg) !important;
+    color: var(--verde-suave-text) !important;
+}
+
+.option-item.incorrect-option {
+    border-color: var(--rojo-suave-border) !important;
+    background-color: var(--rojo-suave-bg) !important;
+    color: var(--rojo-suave-text) !important;
+}
+
+/* Accessible prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Question Navigation Grid */
+.grid-btn {
+    width: 38px;
+    height: 38px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Question Navigation Grid - Estados de Corrección (Colores Suaves) */
+.grid-btn-correcta {
+    background-color: var(--verde-suave-bg) !important;
+    border: 2px solid var(--verde-suave-border) !important;
+    color: var(--verde-suave-text) !important;
+    font-weight: 700 !important;
+}
+
+.grid-btn-correcta:hover,
+.grid-btn-correcta:focus {
+    background-color: var(--verde-suave-hover) !important;
+    border-color: var(--verde-suave-solid) !important;
+    color: var(--verde-suave-text) !important;
+}
+
+.grid-btn-erronea {
+    background-color: var(--rojo-suave-bg) !important;
+    border: 2px solid var(--rojo-suave-border) !important;
+    color: var(--rojo-suave-text) !important;
+    font-weight: 700 !important;
+}
+
+.grid-btn-erronea:hover,
+.grid-btn-erronea:focus {
+    background-color: var(--rojo-suave-hover) !important;
+    border-color: var(--rojo-suave-solid) !important;
+    color: var(--rojo-suave-text) !important;
+}
+
+.grid-btn-no-contestada {
+    background-color: var(--gris-suave-bg) !important;
+    border: 2px solid var(--gris-suave-border) !important;
+    color: var(--gris-suave-text) !important;
+    font-weight: 700 !important;
+}
+
+.grid-btn-no-contestada:hover,
+.grid-btn-no-contestada:focus {
+    background-color: var(--gris-suave-hover) !important;
+    border-color: #475569 !important;
+    color: #0f172a !important;
+}
+
+.grid-btn-anulada {
+    background-color: var(--purpura-suave-bg) !important;
+    border: 2px solid var(--purpura-suave-border) !important;
+    color: var(--purpura-suave-text) !important;
+    font-weight: 700 !important;
+    text-decoration: line-through !important;
+    text-decoration-thickness: 2px !important;
+}
+
+.grid-btn-anulada:hover,
+.grid-btn-anulada:focus {
+    background-color: var(--purpura-suave-hover) !important;
+    border-color: var(--purpura-suave-solid) !important;
+    color: var(--purpura-suave-text) !important;
+}
+
+.grid-btn-reserva-unused {
+    background-color: #f8f9fa !important;
+    border: 1px dashed #cbd5e1 !important;
+    color: #94a3b8 !important;
+    opacity: 0.75;
+}
+
+.grid-btn-reserva-unused:hover,
+.grid-btn-reserva-unused:focus {
+    background-color: #e2e8f0 !important;
+    border-color: #94a3b8 !important;
+    color: #64748b !important;
+    opacity: 1;
+}
+
+/* Badges Suaves */
+.badge-verde-suave {
+    background-color: var(--verde-suave-bg) !important;
+    color: var(--verde-suave-text) !important;
+    border: 1px solid var(--verde-suave-border) !important;
+    font-weight: 600;
+}
+
+.badge-rojo-suave {
+    background-color: var(--rojo-suave-bg) !important;
+    color: var(--rojo-suave-text) !important;
+    border: 1px solid var(--rojo-suave-border) !important;
+    font-weight: 600;
+}
+
+.badge-purpura-suave {
+    background-color: var(--purpura-suave-bg) !important;
+    color: var(--purpura-suave-text) !important;
+    border: 1px solid var(--purpura-suave-border) !important;
+    font-weight: 600;
+}
+
+.badge-gris-suave {
+    background-color: var(--gris-suave-bg) !important;
+    color: var(--gris-suave-text) !important;
+    border: 1px solid var(--gris-suave-border) !important;
+    font-weight: 600;
+}
+
+/* Review Cards - Soft Header and Border Classes */
+.card-review-correcta {
+    border: 2px solid var(--verde-suave-border) !important;
+}
+.card-review-correcta .card-header {
+    background-color: var(--verde-suave-bg) !important;
+    color: var(--verde-suave-text) !important;
+    border-bottom: 1px solid var(--verde-suave-border) !important;
+}
+
+.card-review-erronea {
+    border: 2px solid var(--rojo-suave-border) !important;
+}
+.card-review-erronea .card-header {
+    background-color: var(--rojo-suave-bg) !important;
+    color: var(--rojo-suave-text) !important;
+    border-bottom: 1px solid var(--rojo-suave-border) !important;
+}
+
+.card-review-anulada {
+    border: 2px solid var(--purpura-suave-border) !important;
+}
+.card-review-anulada .card-header {
+    background-color: var(--purpura-suave-bg) !important;
+    color: var(--purpura-suave-text) !important;
+    border-bottom: 1px solid var(--purpura-suave-border) !important;
+}
+
+.card-review-no-contestada {
+    border: 2px solid var(--gris-suave-border) !important;
+}
+.card-review-no-contestada .card-header {
+    background-color: var(--gris-suave-bg) !important;
+    color: var(--gris-suave-text) !important;
+    border-bottom: 1px solid var(--gris-suave-border) !important;
+}
+
+.card-review-reserva-unused {
+    border: 1px dashed #cbd5e1 !important;
+    opacity: 0.8;
+}
+.card-review-reserva-unused .card-header {
+    background-color: #f8f9fa !important;
+    color: #64748b !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Botones de filtro suaves en la revisión */
+.btn-filter-correct {
+    color: var(--verde-suave-text) !important;
+    border-color: var(--verde-suave-border) !important;
+    background-color: #fff !important;
+    font-weight: 600;
+}
+.btn-filter-correct:hover,
+.btn-filter-correct.active {
+    background-color: var(--verde-suave-bg) !important;
+    border-color: var(--verde-suave-solid) !important;
+    color: var(--verde-suave-text) !important;
+}
+
+.btn-filter-incorrect {
+    color: var(--rojo-suave-text) !important;
+    border-color: var(--rojo-suave-border) !important;
+    background-color: #fff !important;
+    font-weight: 600;
+}
+.btn-filter-incorrect:hover,
+.btn-filter-incorrect.active {
+    background-color: var(--rojo-suave-bg) !important;
+    border-color: var(--rojo-suave-solid) !important;
+    color: var(--rojo-suave-text) !important;
+}
+
+.btn-filter-blank {
+    color: var(--gris-suave-text) !important;
+    border-color: var(--gris-suave-border) !important;
+    background-color: #fff !important;
+    font-weight: 600;
+}
+.btn-filter-blank:hover,
+.btn-filter-blank.active {
+    background-color: var(--gris-suave-bg) !important;
+    border-color: #475569 !important;
+    color: var(--gris-suave-text) !important;
+}
+
+.btn-filter-anulada {
+    color: var(--purpura-suave-text) !important;
+    border-color: var(--purpura-suave-border) !important;
+    background-color: #fff !important;
+    font-weight: 600;
+}
+.btn-filter-anulada:hover,
+.btn-filter-anulada.active {
+    background-color: var(--purpura-suave-bg) !important;
+    border-color: var(--purpura-suave-solid) !important;
+    color: var(--purpura-suave-text) !important;
+}
+
+/* Clases de apoyo Púrpura suave para Anuladas */
+.bg-purple {
+    background-color: var(--purpura-suave-bg) !important;
+    color: var(--purpura-suave-text) !important;
+}
+
+.border-purple {
+    border-color: var(--purpura-suave-border) !important;
+}
+
+.text-purple {
+    color: var(--purpura-suave-text) !important;
+}
+
+.btn-outline-purple {
+    color: var(--purpura-suave-text) !important;
+    border-color: var(--purpura-suave-border) !important;
+    background-color: transparent !important;
+    font-weight: 600;
+}
+
+.btn-outline-purple:hover,
+.btn-outline-purple:focus,
+.btn-outline-purple.active {
+    background-color: var(--purpura-suave-bg) !important;
+    border-color: var(--purpura-suave-solid) !important;
+    color: var(--purpura-suave-text) !important;
+}
+
+/* Utilidades de fondo y bordes suaves para opciones de revisión */
+.bg-verde-suave {
+    background-color: var(--verde-suave-bg) !important;
+    border-color: var(--verde-suave-border) !important;
+    color: var(--verde-suave-text) !important;
+}
+
+.bg-rojo-suave {
+    background-color: var(--rojo-suave-bg) !important;
+    border-color: var(--rojo-suave-border) !important;
+    color: var(--rojo-suave-text) !important;
+}
+
+.bg-purpura-suave {
+    background-color: var(--purpura-suave-bg) !important;
+    border-color: var(--purpura-suave-border) !important;
+    color: var(--purpura-suave-text) !important;
+}
+
+.bg-gris-suave {
+    background-color: var(--gris-suave-bg) !important;
+    border-color: var(--gris-suave-border) !important;
+    color: var(--gris-suave-text) !important;
+}
+
+.active-grid {
+    box-shadow: 0 0 0 3px #000;
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+/* Timer Badge Pulse Alert */
+.pulse-alert {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.75;
+        transform: scale(1.05);
+    }
+}
+
+/* Cursor helper */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Scenario Text Box */
+.scenario-card {
+    border: 1px solid #c9d1d9 !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.scenario-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #1a1a1a;
+    max-height: 420px;
+    overflow-y: auto;
+    border-left: 5px solid var(--azul-madrid);
+    background-color: #ffffff;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.1px;
+}
+
+/* Review Cards */
+.card-header {
+    letter-spacing: 0.3px;
+}
+
+/* Custom Scrollbar for Scenario */
+.scenario-text::-webkit-scrollbar {
+    width: 8px;
+}
+.scenario-text::-webkit-scrollbar-track {
+    background: #e9ecef;
+}
+.scenario-text::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 4px;
+}
+
+/* Question Typography */
+.question-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+.question-lead {
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.question-paragraph {
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.question-number {
+    font-weight: 800;
+}
+
+/* Code Blocks & Syntax Highlighting */
+.code-block-wrapper {
+    background-color: #1a222d;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    margin: 1.1rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.code-block-header {
+    background-color: #141c26;
+    border-bottom: 1px solid #243042;
+    padding: 0.4rem 0.85rem;
+}
+
+.code-block-header .badge {
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    padding: 0.3em 0.6em;
+}
+
+.btn-copy-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-code:focus-visible {
+    outline: 2px solid #ffffff !important;
+    outline-offset: 1px;
+}
+
+.code-block-pre {
+    background-color: #1a222d !important;
+    color: #d1d5db !important;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    padding: 1rem 1.25rem;
+    margin: 0;
+    overflow-x: auto;
+    white-space: pre;
+    tab-size: 4;
+}
+
+.code-block-pre code {
+    color: inherit;
+    font-family: inherit;
+    background: transparent;
+    padding: 0;
+}
+
+/* Syntax Highlighting Tokens (Corporate Dark Theme) */
+.token-annotation {
+    color: #93c5fd;
+    font-weight: 600;
+}
+
+.token-keyword {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.token-string {
+    color: #86efac;
+}
+
+.token-comment {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.token-type {
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.token-builtin {
+    color: #5eead4;
+    font-weight: 600;
+}
+
+/* Inline Code */
+.code-inline {
+    background-color: #eef2f6;
+    color: var(--azul-madrid);
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.88em;
+    font-weight: 600;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid #d0d7de;
+    word-break: break-word;
+}
+
+/* Group Badges - Institutional Palette (Azul Madrid, Azul Noche, Azul Oscuro) */
+.badge-grupo-c1 {
+    background-color: var(--azul-madrid) !important;
+    color: #ffffff !important;
+}
+
+.badge-grupo-a2 {
+    background-color: var(--azul-noche) !important;
+    color: #ffffff !important;
+}
+
+.badge-grupo-a1 {
+    background-color: var(--azul-madrid-oscuro) !important;
+    color: #ffffff !important;
+}
+
+/* Exam Card Improvements */
+.exam-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hover-shadow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 51, 153, 0.12) !important;
+}
+
+.filter-panel {
+    border-left: 4px solid var(--azul-madrid);
+}
+
+.max-w-750 {
+    max-width: 750px;
+}
+
+/* Alegaciones - Etiqueta y Sección Desplegable de Motivos */
+.badge-alegaciones {
+    background-color: #ffc107 !important;
+    color: #000000 !important;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.28rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid #d39e00;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    line-height: 1.2;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.badge-alegaciones:hover {
+    background-color: #e0a800 !important;
+    transform: translateY(-1px);
+}
+
+.badge-alegaciones:focus-visible {
+    outline: 3px solid var(--azul-madrid) !important;
+    outline-offset: 2px;
+}
+
+.badge-anulada {
+    background-color: var(--purpura-suave-bg) !important;
+    color: var(--purpura-suave-text) !important;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.28rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid var(--purpura-suave-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    line-height: 1.2;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.badge-anulada:hover {
+    background-color: var(--purpura-suave-hover) !important;
+    border-color: var(--purpura-suave-solid) !important;
+    transform: translateY(-1px);
+}
+
+.badge-anulada:focus-visible {
+    outline: 3px solid var(--azul-madrid) !important;
+    outline-offset: 2px;
+}
+
+.alegaciones-box {
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.alegaciones-details {
+    background-color: #fffdf2;
+    border: 1px solid #ffeeba;
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alegaciones-details[open] {
+    background-color: #fff9e6;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.12);
+}
+
+.anulada-details {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    border-left: 4px solid var(--gris-madrid) !important;
+}
+
+.anulada-details[open] {
+    background-color: #f1f3f5 !important;
+    box-shadow: 0 4px 12px rgba(90, 103, 112, 0.12) !important;
+}
+
+.alegaciones-summary {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    outline: none;
+}
+
+.alegaciones-summary::-webkit-details-marker {
+    display: none;
+}
+
+.alegaciones-summary:focus-visible {
+    outline: 2px solid var(--azul-madrid);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.alegaciones-chevron {
+    transition: transform 0.2s ease-in-out;
+    font-size: 0.85rem;
+}
+
+.alegaciones-details[open] .alegaciones-chevron {
+    transform: rotate(180deg);
+}
+
+.alegaciones-body {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #2b2500;
+}
+
+.alegaciones-texto p:last-child {
+    margin-bottom: 0;
+}
+

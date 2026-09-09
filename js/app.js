@@ -188,13 +188,18 @@ function pintarDocumentacion(lista) {
   }
 
   lista.forEach(d => {
+    const isNewTab = d.target === '_blank' || (d.url && d.url.includes('simulador'));
+    const targetAttrs = isNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const ariaLabel = isNewTab ? ` aria-label="${d.texto} (se abre en una pestaña nueva)"` : '';
+    const icon = isNewTab ? ' <i class="bi bi-box-arrow-up-right ms-1 small" aria-hidden="true"></i>' : '';
+
     tbody.insertAdjacentHTML('beforeend', `
       <tr>
         <td>${d.cuerpo}</td>
         <td>${d.tipo}</td>
         <td>
-          <a href="${d.url}" class="link-primary">
-            ${d.texto}
+          <a href="${d.url}" class="link-primary"${targetAttrs}${ariaLabel}>
+            ${d.texto}${icon}
           </a>
         </td>
       </tr>
