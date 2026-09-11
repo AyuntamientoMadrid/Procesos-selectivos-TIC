@@ -22,6 +22,7 @@ class QuizEngine {
         this.isPaused = false;
         this.isSubmitted = false;
         this.results = null;
+        this.sessionExpiredAndReset = false;
 
         this.init();
     }
@@ -34,6 +35,10 @@ class QuizEngine {
         this.renderGrid();
         this.updateProgress();
 
+        if (this.sessionExpiredAndReset) {
+            this.showExpiredSessionAlert();
+        }
+
         if (!this.isSubmitted) {
             this.startTimer();
         } else {
@@ -45,15 +50,60 @@ class QuizEngine {
     loadState() {
         try {
             let saved = localStorage.getItem(this.storageKey);
+            let legacyKey = null;
             if (!saved && this.examType && this.storageKey !== `tic_madrid_${this.examType}_state`) {
-                saved = localStorage.getItem(`tic_madrid_${this.examType}_state`);
+                legacyKey = `tic_madrid_${this.examType}_state`;
+                saved = localStorage.getItem(legacyKey);
             }
             if (saved) {
                 const parsed = JSON.parse(saved);
+
+                // Si el examen previo quedó sin enviar (a medias):
+                if (!parsed.isSubmitted) {
+                    const timeLimitSeconds = (this.data.timeMinutes || 60) * 60;
+                    const savedRemaining = typeof parsed.timeRemaining === 'number' ? parsed.timeRemaining : timeLimitSeconds;
+                    const lastSavedTime = parsed.lastSaved ? new Date(parsed.lastSaved).getTime() : NaN;
+
+                    let isExpired = false;
+                    let effectiveRemaining = savedRemaining;
+
+                    if (!isNaN(lastSavedTime)) {
+                        const elapsedSeconds = Math.max(0, Math.floor((Date.now() - lastSavedTime) / 1000));
+                        effectiveRemaining = savedRemaining - elapsedSeconds;
+                        if (effectiveRemaining <= 0) {
+                            isExpired = true;
+                        }
+                    } else if (savedRemaining <= 0) {
+                        isExpired = true;
+                    }
+
+                    if (isExpired) {
+                        // El tiempo oficial expiró: limpiar el almacenamiento y reiniciar respuestas
+                        localStorage.removeItem(this.storageKey);
+                        if (legacyKey) {
+                            localStorage.removeItem(legacyKey);
+                        } else if (this.storageKey !== `tic_madrid_${this.examType}_state`) {
+                            localStorage.removeItem(`tic_madrid_${this.examType}_state`);
+                        }
+                        this.answers = {};
+                        this.flagged = new Set();
+                        this.currentQuestionIndex = 0;
+                        this.timeRemaining = timeLimitSeconds;
+                        this.isSubmitted = false;
+                        this.results = null;
+                        this.sessionExpiredAndReset = true;
+                        return;
+                    }
+
+                    // Aún queda tiempo: sincronizar con el tiempo real transcurrido
+                    this.timeRemaining = effectiveRemaining;
+                } else {
+                    this.timeRemaining = typeof parsed.timeRemaining === 'number' ? parsed.timeRemaining : this.timeRemaining;
+                }
+
                 this.answers = parsed.answers || {};
                 this.flagged = new Set(parsed.flagged || []);
                 this.currentQuestionIndex = parsed.currentQuestionIndex || 0;
-                this.timeRemaining = typeof parsed.timeRemaining === 'number' ? parsed.timeRemaining : this.timeRemaining;
                 this.isSubmitted = !!parsed.isSubmitted;
                 this.mode = parsed.mode || 'exam';
                 this.results = parsed.results || null;
@@ -138,6 +188,41 @@ class QuizEngine {
             btn.setAttribute('aria-label', this.isPaused ? 'Reanudar el examen' : 'Pausar el examen');
         }
         this.updateTimerDisplay();
+    }
+
+    showExpiredSessionAlert() {
+        const scenarioContainer = document.getElementById('scenario-container');
+        const mainContent = document.getElementById('main-content');
+        if (!mainContent) return;
+
+        const existing = document.getElementById('session-expired-alert');
+        if (existing) return;
+
+        const alertDiv = document.createElement('div');
+        alertDiv.id = 'session-expired-alert';
+        alertDiv.className = 'alert alert-warning alert-dismissible fade show shadow-sm mb-4 border-warning';
+        alertDiv.setAttribute('role', 'alert');
+        alertDiv.innerHTML = `
+            <div class="d-flex align-items-start gap-2">
+                <span class="fs-4" aria-hidden="true">⏰</span>
+                <div>
+                    <h5 class="alert-heading h6 fw-bold mb-1">Tiempo de examen agotado</h5>
+                    <p class="mb-0 small">El intento anterior no se completó y su tiempo oficial expiró mientras estabas ausente. Se han limpiado las respuestas y ha comenzado un nuevo intento con el tiempo completo.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar notificación"></button>
+        `;
+
+        const closeBtn = alertDiv.querySelector('.btn-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => alertDiv.remove());
+        }
+
+        if (scenarioContainer && scenarioContainer.parentNode) {
+            scenarioContainer.parentNode.insertBefore(alertDiv, scenarioContainer);
+        } else {
+            mainContent.prepend(alertDiv);
+        }
     }
 
     setupDOM() {
