@@ -15,8 +15,9 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
     <header class='banda'>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
             <div class="container">
                 <img src="assets/img/firma.svg" alt="Ayuntamiento de Madrid" class="marca__logo me-3">
                 <a class="navbar-brand" href="#">
@@ -30,10 +31,10 @@
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link active" href="#abiertas" aria-current="page">Abiertas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#desarrollo" aria-current="page">En desarrollo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#finalizadas" aria-current="page">Finalizadas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#documentacion" aria-current="page">Documentación de apoyo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#faq" aria-current="page">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#desarrollo">En desarrollo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#finalizadas">Finalizadas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#documentacion">Documentación de apoyo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                     </ul>
 
                 </div>
@@ -41,19 +42,19 @@
         </nav>
     </header>
 
-    <section id="procesos-tic" class="introduccion my-5">
+    <section id="procesos-tic" class="introduccion my-4 my-md-5">
         <div class="contenedor">
             <h1 id="intro-titulo"></h1>
             <p class="intro-text" id="intro-texto"></p>
 
-            <div class="row gy-4" id="itinerarios-container">
+            <div class="row g-3 g-lg-4" id="itinerarios-container">
             </div>
 
             <p class="intro-final" id="intro-final"></p>
         </div>
     </section>
 
-    <main id='contenido' class="contenedor">
+    <main id='contenido' class="contenedor" tabindex="-1">
         <section id="abiertas" class="mt-3 mt-md-4 mt-lg-5">
             <h2>Convocatorias Abiertas</h2>
             <div id="lista-abiertas"></div>
@@ -70,18 +71,22 @@
 
         <section id="documentacion" class="my-5">
             <h2 class="mb-4">Recursos de apoyo</h2>
-            <table class="table table-striped table-bordered">
-                <caption class="visually-hidden">Documentación de apoyo para procesos selectivos TIC</caption>
-                <tbody id="tabla-documentacion"></tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <caption class="visually-hidden">Documentación de apoyo para procesos selectivos TIC</caption>
+                    <tbody id="tabla-documentacion"></tbody>
+                </table>
+            </div>
         </section>
 
         <section id="faq" class="my-5">
             <h2 class="mb-4">FAQ</h2>
-            <table class="table table-striped table-bordered">
-                <caption class="visually-hidden">Documentos de respuesta a preguntas frecuentes</caption>
-                <tbody id="tabla-faq"></tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <caption class="visually-hidden">Documentos de respuesta a preguntas frecuentes</caption>
+                    <tbody id="tabla-faq"></tbody>
+                </table>
+            </div>
         </section>
 
     </main>

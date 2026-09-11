@@ -61,15 +61,17 @@ function pintarItinerarios(itinerarios) {
   itinerarios.forEach((it, index) => {
     const descId = `itinerario-${it.id}-desc`;
     container.insertAdjacentHTML('beforeend', `
-      <article class="col-12 col-md-6 col-lg-3 itinerario">
-        <button type="button" class="itinerario__imagen" data-target="${descId}" aria-expanded="false" aria-controls="${descId}">
-          <img src="${it.imagen}" alt="${it.alt}">
-        </button>
-        <h3>${it.titulo}</h3>
-        <div class="itinerario__descripcion d-none" id="${descId}">
-          ${it.descripcion}
-        </div>
-      </article>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="itinerario h-100">
+          <button type="button" class="itinerario__imagen" data-target="${descId}" aria-expanded="false" aria-controls="${descId}">
+            <img src="${it.imagen}" alt="${it.alt}">
+          </button>
+          <h3>${it.titulo}</h3>
+          <div class="itinerario__descripcion d-none" id="${descId}">
+            ${it.descripcion}
+          </div>
+        </article>
+      </div>
     `);
   });
 
@@ -126,7 +128,7 @@ function pintarConvocatorias(id, lista, estado, mensajeVacio) {
   lista.forEach(c => {
     const tituloDividido = dividirTitulo(c.titulo);
     cont.insertAdjacentHTML('beforeend', `
-      <div class="row mb-3">
+      <div class="row g-2 mb-3 align-items-center">
       <div class="col-md-4">
       <div class="card card-convocatoria border-0">
       <div class="card-body">
