@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Declaración de Accesibilidad · Procesos Selectivos TIC · Ayuntamiento de Madrid</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header class="banda">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a href="index.html" class="d-flex align-items-center text-decoration-none" aria-label="Ir a la página principal">
+                    <img src="assets/img/firma.svg" alt="Ayuntamiento de Madrid" class="marca__logo me-3">
+                </a>
+                <a class="navbar-brand" href="index.html">
+                    Procesos selectivos TIC
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html#abiertas">Abiertas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#desarrollo">En desarrollo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#finalizadas">Finalizadas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="simulador-test-tic-madrid/index.html">Simulador TIC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="contenido" class="contenedor my-4 my-md-5" tabindex="-1">
+        <nav aria-label="Miga de pan" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Declaración de accesibilidad</li>
+            </ol>
+        </nav>
+
+        <article class="declaracion-accesibilidad">
+            <header class="mb-4 pb-3 border-bottom">
+                <h1 class="titulo-corporativo mb-2">Declaración de Accesibilidad</h1>
+                <p class="lead text-secondary">
+                    Sitio web de Procesos Selectivos TIC del Ayuntamiento de Madrid
+                </p>
+            </header>
+
+            <section class="mb-5">
+                <p>
+                    El <strong>Ayuntamiento de Madrid</strong> se ha comprometido a hacer accesibles sus sitios web y aplicaciones para dispositivos móviles, de conformidad con el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699" target="_blank" rel="noopener noreferrer">Real Decreto 1112/2018, de 7 de septiembre (se abre en una pestaña nueva) <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público, por el que se traspone al ordenamiento jurídico español la Directiva (UE) 2016/2102 del Parlamento Europeo y del Consejo.
+                </p>
+                <p>
+                    La presente declaración de accesibilidad se aplica al sitio web <strong>Procesos Selectivos TIC</strong> (<a href="index.html">portal principal</a> y plataforma interactiva del <a href="simulador-test-tic-madrid/index.html">Simulador de Exámenes TIC</a>).
+                </p>
+            </section>
+
+            <!-- 1. GRADO DE CONFORMIDAD -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">1. Situación de cumplimiento y grado de conformidad</h2>
+                <div class="card border-start border-4 border-success shadow-sm mb-3">
+                    <div class="card-body">
+                        <p class="card-text fs-5 mb-0 text-dark">
+                            Este sitio web es <strong class="text-success">plenamente conforme</strong> con el Real Decreto 1112/2018 (WCAG 2.1 AA / UNE-EN 301549:2022), sin perjuicio de las excepciones legales relativas a contenidos externos señaladas en el apartado 2.c.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    El nivel de conformidad evaluado toma como referencia los requisitos de accesibilidad previstos en la norma europea <strong>UNE-EN 301549:2022</strong> («Requisitos de accesibilidad para productos y servicios TIC»), que a su vez se corresponden con las <strong>Pautas de Accesibilidad para el Contenido Web (WCAG) 2.1</strong> en su nivel de adecuación <strong>AA</strong>.
+                </p>
+            </section>
+
+            <!-- 2. CONTENIDOS NO ACCESIBLES Y SUS MOTIVOS -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">2. Contenido no accesible y motivos</h2>
+                <p>
+                    Tras los trabajos de adecuación técnica y subsanación realizados, el código HTML, CSS y JavaScript del sitio web no presenta faltas de conformidad intrínsecas. No obstante, se mantiene este apartado con fines de transparencia e información sobre las excepciones aplicables:
+                </p>
+
+                <h3 class="h4 fw-bold text-secondary mt-4 mb-3">a) Historial de incidencias identificadas y subsanadas</h3>
+                <p>
+                    Durante la auditoría técnica inicial se identificaron las siguientes incidencias, que han sido <strong>íntegramente subsanadas</strong>:
+                </p>
+                <ul>
+                    <li class="mb-2">
+                        <strong>Criterio 1.1.1 Contenido no textual (WCAG 2.1 Nivel A):</strong> Se incorporó alternativa textual descriptiva y accesible (<code>alt="Ayuntamiento de Madrid"</code>) en el isotipo institucional de los pies de página.
+                    </li>
+                    <li class="mb-2">
+                        <strong>Criterio 1.3.1 Información y relaciones (WCAG 2.1 Nivel A):</strong> Se estructuraron las tablas de datos de consulta (recursos de apoyo y FAQ) incorporando cabeceras semánticas explícitas mediante etiquetas <code>&lt;thead&gt;</code> y celdas <code>&lt;th scope="col"&gt;</code>.
+                    </li>
+                    <li class="mb-2">
+                        <strong>Criterio 1.4.3 Contraste (mínimo) (WCAG 2.1 Nivel AA):</strong> Se optimizó el ratio de contraste por encima de 4.5:1 (y superando 9:1 en elementos clave) en fórmulas dentro de etiquetas <code>&lt;code&gt;</code>, insignias de estado (<code>.badge.bg-outline-secondary</code>) y botones de navegación.
+                    </li>
+                </ul>
+
+                <h3 class="h4 fw-bold text-secondary mt-4 mb-3">b) Carga desproporcionada</h3>
+                <p>
+                    No aplica. Actualmente no se ha formulado exención por carga desproporcionada al amparo del artículo 7 del Real Decreto 1112/2018.
+                </p>
+
+                <h3 class="h4 fw-bold text-secondary mt-4 mb-3">c) Contenido que no entra en el ámbito de la legislación aplicable</h3>
+                <p>
+                    De conformidad con el artículo 3.4 del Real Decreto 1112/2018, quedan excluidos del ámbito de aplicación:
+                </p>
+                <ul>
+                    <li class="mb-2">
+                        Archivos ofimáticos en formato PDF u otros formatos publicados antes del 20 de septiembre de 2018 que no cumplan plenamente todos los requisitos de accesibilidad.
+                    </li>
+                    <li class="mb-2">
+                        Contenidos o servicios de terceros no financiados ni desarrollados por el Ayuntamiento de Madrid, ni bajo su control directo (por ejemplo, enlaces a boletines oficiales, plataformas de empleo público externas o bibliotecas analíticas de terceros).
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 3. FECHA DE ELABORACIÓN Y REVISIÓN -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">3. Preparación de la presente declaración de accesibilidad</h2>
+                <ul>
+                    <li class="mb-2">
+                        <strong>Fecha de preparación y elaboración:</strong> 15 de septiembre de 2026.
+                    </li>
+                    <li class="mb-2">
+                        <strong>Método empleado para preparar la declaración:</strong> Autoevaluación llevada a cabo por el propio organismo, combinando:
+                        <ul class="mt-1">
+                            <li>Auditoría automatizada mediante la herramienta de código abierto <strong>Pa11y v10.0.0</strong> frente a las directrices WCAG 2.1 nivel AA.</li>
+                            <li>Revisión técnica manual de estructura semántica, jerarquía de títulos, navegación por teclado sin ratón, contraste de color y compatibilidad con lectores de pantalla.</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        <strong>Fecha de la última revisión:</strong> 15 de septiembre de 2026.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 4. MECANISMOS PARA COMUNICAR INCIDENCIAS -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">4. Comunicaciones y datos de contacto</h2>
+                <p>
+                    En virtud del artículo 10.2 del Real Decreto 1112/2018, cualquier persona interesada puede establecer comunicación con el Ayuntamiento de Madrid para:
+                </p>
+                <ul>
+                    <li class="mb-2">Informar sobre cualquier posible <strong>incumplimiento</strong> por parte de este sitio web.</li>
+                    <li class="mb-2">Transmitir otras <strong>dificultades de acceso</strong> al contenido.</li>
+                    <li class="mb-2">Formular cualquier otra <strong>consulta o sugerencia de mejora</strong> relativa a la accesibilidad del sitio web.</li>
+                </ul>
+                <p>
+                    Las comunicaciones pueden realizarse a través de las siguientes vías:
+                </p>
+                <div class="row g-3 mt-1">
+                    <div class="col-md-6">
+                        <div class="card h-100 border shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-dark mb-2">
+                                    <i class="bi bi-envelope-at me-2 text-primary" aria-hidden="true"></i>Correo electrónico directo
+                                </h3>
+                                <p class="card-text mb-0">
+                                    Dirigiendo su consulta o comunicación a:<br>
+                                    <a href="mailto:procesosselectivostic@madrid.es?subject=Accesibilidad%20web%20-%20Procesos%20Selectivos%20TIC" class="fw-bold link-primary text-decoration-underline" style="color: #003399 !important;">
+                                        procesosselectivostic@madrid.es
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold text-dark mb-2">
+                                    <i class="bi bi-chat-square-text me-2 text-primary" aria-hidden="true"></i>Sugerencias y Reclamaciones
+                                </h3>
+                                <p class="card-text mb-0">
+                                    A través del sistema municipal de Línea Madrid:<br>
+                                    <a href="https://sede.madrid.es" target="_blank" rel="noopener noreferrer" class="fw-bold link-primary text-decoration-underline" style="color: #003399 !important;">
+                                        Sede Electrónica del Ayuntamiento de Madrid (se abre en una pestaña nueva) <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i>
+                                    </a>
+                                    o llamando al teléfono gratuito <strong>010</strong> (914 800 010 desde fuera de Madrid).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-secondary small">
+                    Las comunicaciones serán recibidas y procesadas por la <strong>Unidad Responsable de Accesibilidad (URA)</strong> y el equipo responsable de las tecnologías de la información del Ayuntamiento de Madrid.
+                </p>
+            </section>
+
+            <!-- 5. PROCEDIMIENTO DE QUEJA Y RECLAMACIÓN -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">5. Procedimiento de queja y reclamación</h2>
+                <p>
+                    De acuerdo con el <strong>artículo 13 del Real Decreto 1112/2018</strong>, si una vez realizada una solicitud de información accesible o queja:
+                </p>
+                <ul>
+                    <li class="mb-2">La solicitud de información accesible o queja hubiera sido <strong>desestimada</strong>.</li>
+                    <li class="mb-2">No se estuviera de acuerdo con la <strong>decisión adoptada</strong>.</li>
+                    <li class="mb-2">La respuesta no cumpliera los requisitos establecidos en el artículo 12.5 del RD 1112/2018.</li>
+                    <li class="mb-2">O bien hubiera transcurrido el plazo de <strong>veinte días hábiles</strong> sin haber obtenido respuesta.</li>
+                </ul>
+                <p>
+                    La persona interesada podrá iniciar una <strong>reclamación</strong> para conocer y oponerse a los motivos de la desestimación, instar la adopción de las medidas oportunas en el caso de no estar de acuerdo con la decisión adoptada, o exponer las razones por las que se considera que la respuesta no cumple con los requisitos exigidos.
+                </p>
+                <div class="card border-primary border-2 shadow-sm p-4" role="region" aria-label="Canal para presentar reclamaciones">
+                    <h3 class="h5 fw-bold mb-2 text-dark">¿Cómo y dónde presentar la reclamación?</h3>
+                    <p class="mb-2">
+                        La reclamación podrá ser presentada a través de:
+                    </p>
+                    <ul class="mb-2">
+                        <li>
+                            El trámite habilitado en la <strong>Sede Electrónica del Ayuntamiento de Madrid</strong> (<a href="https://sede.madrid.es" target="_blank" rel="noopener noreferrer" class="text-decoration-underline fw-semibold" style="color: #003399 !important;">sede.madrid.es (se abre en una pestaña nueva) <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>), en el apartado de <em>Reclamaciones en materia de accesibilidad</em>.
+                        </li>
+                        <li>
+                            Cualquiera de los registros o canales presenciales y telemáticos establecidos en el artículo 16.4 de la <strong>Ley 39/2015, de 1 de octubre</strong>, del Procedimiento Administrativo Común de las Administraciones Públicas.
+                        </li>
+                        <li>
+                            Presencialmente en las Oficinas de Asistencia en Materia de Registro (OAMR) y Oficinas de Atención a la Ciudadanía (OAC) de Línea Madrid.
+                        </li>
+                    </ul>
+                    <p class="mb-0 small text-secondary">
+                        Las reclamaciones serán recibidas y tramitadas por la <strong>Unidad Responsable de Accesibilidad</strong> del Ayuntamiento de Madrid.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 6. COMPROMISO INSTITUCIONAL -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-dark mb-3">6. Compromiso con la accesibilidad universal</h2>
+                <p>
+                    El Ayuntamiento de Madrid continúa trabajando activamente para eliminar las barreras de accesibilidad digital identificadas y aplicar mejoras continuas en sus plataformas, con el objetivo de garantizar la plena inclusión y facilitar el acceso a la función pública municipal a toda la ciudadanía en igualdad de condiciones.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="pie bg-dark text-white py-4">
+        <div class="contenedor d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <div>
+                <img src="assets/img/pie.svg" alt="Ayuntamiento de Madrid" class="firma__isotipo">
+            </div>
+            <div class="text-center text-md-end small">
+                <p class="mb-1 opacity-75">Procesos Selectivos TIC · Ayuntamiento de Madrid</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-3">
+                        <a href="index.html" class="text-white text-decoration-underline">Inicio</a>
+                    </li>
+                    <li class="list-inline-item me-3">
+                        <a href="simulador-test-tic-madrid/index.html" class="text-white text-decoration-underline">Simulador de Exámenes</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="accesibilidad.html" class="text-white text-decoration-underline" aria-current="page">Declaración de accesibilidad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

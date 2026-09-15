@@ -91,7 +91,13 @@ body {
 
 .pie {
     border-top: 4px solid var(--azul-madrid);
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+}
+
+.firma__isotipo {
+    height: 38px;
+    width: auto;
+    max-width: 100%;
 }
 
 .tarjeta {

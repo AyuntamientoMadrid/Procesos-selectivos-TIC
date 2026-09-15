@@ -67,7 +67,7 @@
             <div class="card-body p-4">
                 <div class="row g-3 align-items-center">
                     <div class="col-md-7 col-sm-12">
-                        <label class="form-label fw-bold text-secondary small text-uppercase mb-2">Filtrar por Grupo Profesional:</label>
+                        <label class="form-label fw-bold text-dark small text-uppercase mb-2">Filtrar por Grupo Profesional:</label>
                         <div class="btn-group w-100 flex-wrap" role="group" aria-label="Filtro por grupo">
                             <button type="button" class="btn btn-outline-azul-madrid btn-filter-grupo active" data-grupo="all">Todos</button>
                             <button type="button" class="btn btn-outline-azul-madrid btn-filter-grupo" data-grupo="C1">C1</button>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                        <label class="form-label fw-bold text-secondary small text-uppercase mb-2">Filtrar por Convocatoria:</label>
+                        <label class="form-label fw-bold text-dark small text-uppercase mb-2">Filtrar por Convocatoria:</label>
                         <div class="btn-group w-100 flex-wrap" role="group" aria-label="Filtro por convocatoria">
                             <button type="button" class="btn btn-outline-azul-madrid btn-filter-convocatoria active" data-convocatoria="all">Todas</button>
                             <button type="button" class="btn btn-outline-azul-madrid btn-filter-convocatoria" data-convocatoria="2026">2026</button>
@@ -99,7 +99,7 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4">
                         <h4 class="fw-bold text-dark mb-3">⚖️ Criterios Oficiales y Universales de Calificación</h4>
-                        <p class="text-secondary">
+                        <p class="text-dark">
                             Todos los cuestionarios están compuestos por preguntas tipo test con <strong>3 respuestas alternativas</strong> (a, b, c), siendo una de ellas la correcta. La fórmula de calificación es siempre uniforme:
                         </p>
                         <div class="p-3 bg-light rounded border mb-3">
@@ -107,32 +107,32 @@
                         </div>
                         <div class="row text-center g-2 mb-3">
                             <div class="col-4">
-                                <div class="p-2 border rounded bg-success-subtle text-success">
+                                <div class="p-2 border rounded bg-success-subtle text-success-accessible">
                                     <div class="fw-bold fs-5">+1.00</div>
-                                    <small>Por Acierto</small>
+                                    <small class="fw-semibold">Por Acierto</small>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="p-2 border rounded bg-secondary-subtle text-dark">
                                     <div class="fw-bold fs-5">-0.33</div>
-                                    <small>Por Fallo</small>
+                                    <small class="fw-semibold">Por Fallo</small>
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="p-2 border rounded bg-light text-secondary">
+                                <div class="p-2 border rounded bg-light text-dark">
                                     <div class="fw-bold fs-5">0.00</div>
-                                    <small>En Blanco</small>
+                                    <small class="fw-semibold">En Blanco</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-3 bg-light rounded border mb-3 small text-secondary">
+                        <div class="p-3 bg-light rounded border mb-3 small text-dark">
                             <strong class="text-dark">🛡️ Corrección de preguntas anuladas y preguntas de reserva:</strong>
                             <ul class="mb-0 ps-3 mt-1">
                                 <li>Las preguntas anuladas por el Tribunal Calificador no computan ni penalizan.</li>
                                 <li>En exámenes con preguntas de reserva al final del cuestionario, las reservas válidas sustituyen correlativamente a las anuladas para completar la calificación oficial.</li>
                             </ul>
                         </div>
-                        <small class="text-muted d-block">
+                        <small class="text-dark d-block">
                             * El número de preguntas y la duración dependen de cada categoría y convocatoria oficial.
                         </small>
                     </div>
@@ -144,11 +144,9 @@
                     <div class="card-body p-4">
                         <h4 class="fw-bold text-dark mb-3">⚡ Características del Simulador</h4>
                         <ul class="list-unstyled text-secondary mb-0">
-                            <li class="mb-2">🌐 <strong>100% Estático en GitHub Pages:</strong> Sin servidores externos, ejecución fluida y privada.</li>
-                            <li class="mb-2">💾 <strong>Autoguardado por Examen:</strong> Tu progreso, temporizador y respuestas se guardan individualmente.</li>
+                            <li class="mb-2">💾 <strong>Autoguardado:</strong> Tu progreso se guarda en local en el navegador. Si cambias de dispositivo o borras caché se perderá.</li>
                             <li class="mb-2">🚩 <strong>Marcar Dudas:</strong> Navegador visual para repasar preguntas antes de entregar.</li>
                             <li class="mb-2">💡 <strong>Modo Examen o Práctica:</strong> Elige entre simulación con cronómetro o retroalimentación inmediata.</li>
-                            <li class="mb-2">📋 <strong>Supuestos Prácticos Íntegros:</strong> Texto desplegable y código formateado con resaltado de sintaxis.</li>
                             <li class="mb-2">⚖️ <strong>Alegaciones y Motivos:</strong> Consulta preguntas objeto de alegación con desplegable de los motivos del Tribunal.</li>
                         </ul>
                     </div>
@@ -174,7 +172,12 @@
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container text-center">
             <p class="mb-1 opacity-75">Simulacro de Preparación de Procesos Selectivos TIC — C1, A2 y A1 del Ayuntamiento de Madrid</p>
-            <small class="opacity-50">Publicado en GitHub Pages • Sin dependencias de servidor</small>
+            <p class="mb-2 small text-white-50">
+                ¿Has detectado alguna errata o fallo? <a href="mailto:procesosselectivostic@madrid.es?subject=Reporte%20de%20erratas%20o%20fallos%20-%20Simulador%20TIC" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-underline">Reportar por email a procesosselectivostic@madrid.es</a>
+            </p>
+            <div class="small pt-2 border-top border-secondary">
+                <a href="../accesibilidad.html" class="text-white text-decoration-underline">Declaración de accesibilidad</a>
+            </div>
         </div>
     </footer>
 

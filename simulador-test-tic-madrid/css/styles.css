@@ -881,3 +881,30 @@ body {
     margin-bottom: 0;
 }
 
+/* ==========================================================================
+   Mejoras de Accesibilidad y Contraste WCAG 2.1 AA (RD 1112/2018)
+   ========================================================================== */
+
+/* Insignias de esquema con alto contraste (> 14:1) */
+.badge.bg-outline-secondary {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border: 1px solid #5A6770 !important;
+}
+
+/* Bloques de código legibles y corporativos (> 9:1 sobre fondo claro) */
+code {
+    color: #003399 !important;
+    font-weight: 600;
+}
+
+/* Colores accesibles para componentes informativos */
+.text-success-accessible {
+    color: #0a582b !important;
+}
+
+.text-dark-accessible {
+    color: #212529 !important;
+}
+
+

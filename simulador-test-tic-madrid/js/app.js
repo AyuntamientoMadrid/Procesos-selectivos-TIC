@@ -657,7 +657,7 @@ class QuizEngine {
                         <span class="badge bg-outline-secondary border px-2 position-relative">N<span class="position-absolute top-0 start-0 translate-middle p-1 bg-warning border border-light rounded-circle"></span></span> Con alegaciones
                     </div>
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-light text-muted border px-2">R</span> Reserva no requerida
+                        <span class="badge bg-light text-dark border px-2">R</span> Reserva no requerida
                     </div>
                 `;
             } else {
@@ -678,7 +678,7 @@ class QuizEngine {
                         <span class="badge bg-outline-secondary border px-2">N</span> Sin responder
                     </div>
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-light text-muted border px-2">R</span> Reserva no requerida
+                        <span class="badge bg-light text-dark border px-2">R</span> Reserva no requerida
                     </div>
                 `;
             }
