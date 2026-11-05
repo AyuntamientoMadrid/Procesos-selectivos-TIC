@@ -105,19 +105,29 @@
       "cuerpo": "General",
       "tipo": "Documentación oficial",
       "texto": "Bases generales para procesos selectivos, personal funcinario, turno acceso libre",
-      "url": "https://www.madrid.es/UnidadWeb/Contenidos/Oposiciones/00_BasesGralFuncionario/BasesTurnoLibre.pdf"
+      "url": "https://www.madrid.es/UnidadWeb/Contenidos/Oposiciones/00_BasesGralFuncionario/BasesTurnoLibre.pdf",
+      "target": "_blank"
+    },
+    {
+      "cuerpo": "Todos",
+      "tipo": "Calendario previsión de exámenes",
+      "texto": "Publicación de Madrid Talento con la previsión de exámenes de todas las convocatorias abiertas",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/Educacion-y-empleo/Empleo/Oposiciones/Prevision-de-examenes-y-convocatorias/Prevision-de-examenes/?vgnextfmt=default&vgnextchannel=8c9f71bc848af910VgnVCM100000891ecb1aRCRD",
+      "target": "_blank"
     },
     {
       "cuerpo": "Técnico/a Auxiliar TIC",
       "tipo": "Documentación de apoyo",
       "texto": "Cuaderno de NotebookLM (resolución de dudas)",
-      "url": "https://notebooklm.google.com/notebook/1bf54086-8eee-47ec-beed-e87ab8865995"
+      "url": "https://notebooklm.google.com/notebook/1bf54086-8eee-47ec-beed-e87ab8865995",
+      "target": "_blank"
     },
     {
       "cuerpo": "Técnico/a Auxiliar TIC",
       "tipo": "Documentación de apoyo",
       "texto": "Web no oficial – test similares",
-      "url": "https://www.baquedano.es/grupo_C.html"
+      "url": "https://www.baquedano.es/grupo_C.html",
+      "target": "_blank"
     },
     {
       "cuerpo": "Procesos Selectivos TIC (C1, A2, A1)",
