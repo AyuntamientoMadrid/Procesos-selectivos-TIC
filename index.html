@@ -29,8 +29,17 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#abiertas" aria-current="page">Abiertas</a></li>
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item me-lg-2 d-none" id="nav-item-novedades">
+                            <a class="nav-link nav-link-novedades" href="#novedades">
+                                <span>Novedades</span>
+                                <span id="novedades-nav-indicador" class="badge-nav-novedad d-none" aria-label="Hay novedades recientes">
+                                    <i class="bi bi-bell-fill" aria-hidden="true"></i>
+                                    <span class="visually-hidden">(hay novedades recientes)</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#abiertas">Abiertas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#desarrollo">En desarrollo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#finalizadas">Finalizadas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#documentacion">Documentación de apoyo</a></li>
@@ -41,6 +50,20 @@
             </div>
         </nav>
     </header>
+
+    <div id="banner-novedad" class="banner-novedades d-none" role="region" aria-label="Aviso de última novedad">
+        <div class="contenedor d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
+                <span class="badge-alerta-novedad">
+                    <i class="bi bi-bell-fill me-1" aria-hidden="true"></i> Última novedad
+                </span>
+                <span id="banner-novedad-texto" class="banner-novedad__texto text-truncate"></span>
+            </div>
+            <a id="banner-novedad-enlace" href="#novedades" class="banner-novedad__enlace">
+                Ver detalle <i class="bi bi-arrow-down-short ms-1" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
 
     <section id="procesos-tic" class="introduccion my-4 my-md-5">
         <div class="contenedor">
@@ -55,6 +78,27 @@
     </section>
 
     <main id='contenido' class="contenedor" tabindex="-1">
+        <section id="novedades" class="mt-3 mt-md-4 mt-lg-5 d-none" aria-labelledby="titulo-novedades">
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2 border-bottom pb-2">
+                <h2 id="titulo-novedades" class="mb-0">
+                    <i class="bi bi-newspaper me-2 text-primary" aria-hidden="true"></i>Novedades
+                </h2>
+                <span class="badge bg-light text-secondary border">
+                    <i class="bi bi-clock-history me-1" aria-hidden="true"></i> Tablón de avisos
+                </span>
+            </div>
+            <div id="lista-novedades-reciente" class="novedades-lista"></div>
+            <div id="contenedor-novedades-anteriores" class="d-none">
+                <div id="lista-novedades-anteriores" class="novedades-lista mt-3"></div>
+            </div>
+            <div id="novedades-toggle-container" class="mt-3 text-center d-none">
+                <button type="button" id="btn-toggle-novedades" class="btn btn-outline-primary btn-sm" aria-expanded="false" aria-controls="contenedor-novedades-anteriores">
+                    <i class="bi bi-chevron-down me-1" aria-hidden="true"></i>
+                    <span id="btn-toggle-novedades-texto">Ver novedades anteriores</span>
+                </button>
+            </div>
+        </section>
+
         <section id="abiertas" class="mt-3 mt-md-4 mt-lg-5">
             <h2>Convocatorias Abiertas</h2>
             <div id="lista-abiertas"></div>
